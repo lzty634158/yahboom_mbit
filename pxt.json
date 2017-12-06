@@ -1,7 +1,7 @@
 {
     "name": "robotbit",
     "version": "0.1.5",
-    "description": "Extension for Kittenbot Robotbit",
+    "description": "Extension for YahBoom m:bit",
     "license": "MIT",
     "dependencies": {
         "core": "*",
