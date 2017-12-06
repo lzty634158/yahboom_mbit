@@ -1,6 +1,6 @@
-# robotbit
+# mbit
 
-Extension for Kittenbot Robotbit
+Extension for Yahboom mbit
 
 ## License
 
@@ -10,7 +10,3 @@ MIT
 
 * for PXT/microbit
 (The metadata above is needed for package search.)
-
-```package
-robotbit=github:Kittenbot/pxt-robotbit
-```
