@@ -6,7 +6,7 @@ load dependency
 */
 
 
-//% color="#31C7D5" weight=10 icon="\uf1d0"
+//% color="#31C7D5" weight=10 icon="\uf1d1"
 namespace mbit {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
@@ -205,13 +205,13 @@ namespace mbit {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
 		export function CarCtrl(index: CarState): void {
         
-				if (!initialized) {
-            initPCA9685()
-        }
-        // 50hz: 20,000 us
-        //let v_us = (degree * 1800 / 180 + 600) // 0.6 ~ 2.4
-        //let value = v_us * 4096 / 20000
-        //setPwm(index + 7, 0, value)
+			if (!initialized) {
+			    initPCA9685()
+			}
+      // 50hz: 20,000 us
+      //let v_us = (degree * 1800 / 180 + 600) // 0.6 ~ 2.4
+      //let value = v_us * 4096 / 20000
+      //setPwm(index + 7, 0, value)
     }
 
 	/**
