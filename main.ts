@@ -199,7 +199,10 @@ namespace mbit {
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
 		
-		//% ³µ¿ØÖÆ
+		//% blockId=mbit_CarCtrl block="CarCtrl|%index"
+    //% weight=100
+    //% blockGap=50
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
 		export function CarCtrl(index: CarState): void {
         
 				if (!initialized) {
