@@ -85,6 +85,15 @@ namespace mbit {
         //% blockId="T5B0" block="5"
         T5B0 = 1800
     }
+    export enum CarState {
+    		Car_Run = 0x1,
+    		Car_Back = 0x2,
+    		Car_Left = 0x3,
+    		Car_Right = 0x4,
+    		Car_Stop = 0x5,
+    		Car_SpinLeft = 0x6,
+    		Car_SpinRight = 0x7
+    }
 
     let initialized = false
     let initializedMatrix = false
@@ -190,15 +199,16 @@ namespace mbit {
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
 		
-		//车控制
-		export function CarCtrl(index: Servos, degree: number): void {
-        if (!initialized) {
+		//% 车控制
+		export function CarCtrl(index: CarState): void {
+        
+				if (!initialized) {
             initPCA9685()
         }
         // 50hz: 20,000 us
-        let v_us = (degree * 1800 / 180 + 600) // 0.6 ~ 2.4
-        let value = v_us * 4096 / 20000
-        setPwm(index + 7, 0, value)
+        //let v_us = (degree * 1800 / 180 + 600) // 0.6 ~ 2.4
+        //let value = v_us * 4096 / 20000
+        //setPwm(index + 7, 0, value)
     }
 
 	/**

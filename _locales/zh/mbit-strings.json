@@ -1,5 +1,5 @@
 {
-	"mbit.CarCtrl|block": "小车控制|%index|速度 %degree",
+	"mbit.CarCtrl|block": "小车控制|%index",
 	"mbit.Servo|block": "舵0机|%index|角度 %degree",
 	"mbit.StepperDegree|block": "步进 28BYJ-48|%index|角度 %degree",
 	"mbit.StepperTurn|block": "步进 28BYJ-48|%index|圈数 %turn",
