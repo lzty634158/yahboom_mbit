@@ -1,4 +1,5 @@
 {
+	"mbit.CarCtrl|block": "小车控制|%index|速度 %degree",
 	"mbit.Servo|block": "舵0机|%index|角度 %degree",
 	"mbit.StepperDegree|block": "步进 28BYJ-48|%index|角度 %degree",
 	"mbit.StepperTurn|block": "步进 28BYJ-48|%index|圈数 %turn",
@@ -11,5 +12,5 @@
 	"mbit.Ultrasonic|block": "超声波|引脚 %pin",
 	"mbit.MatrixDraw|block": "LED矩阵 描点|X %x|Y %y",
 	"mbit.MatrixClear|block": "LED矩阵 清空",
-	"mbit.Car|block": "小车控制|%index|速度 %degree"
+	
 }

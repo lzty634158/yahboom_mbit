@@ -189,7 +189,17 @@ namespace mbit {
         matBuf[0] = 0x00;
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
-
+		
+		//³µ¿ØÖÆ
+		export function CarCtrl(index: Servos, degree: number): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        // 50hz: 20,000 us
+        let v_us = (degree * 1800 / 180 + 600) // 0.6 ~ 2.4
+        let value = v_us * 4096 / 20000
+        setPwm(index + 7, 0, value)
+    }
 
 	/**
      * Init RGB pixels mounted on mbit
@@ -219,15 +229,7 @@ namespace mbit {
         setPwm(index + 7, 0, value)
     }
     
-    export function Car(index: Servos, degree: number): void {
-        if (!initialized) {
-            initPCA9685()
-        }
-        // 50hz: 20,000 us
-        let v_us = (degree * 1800 / 180 + 600) // 0.6 ~ 2.4
-        let value = v_us * 4096 / 20000
-        setPwm(index + 7, 0, value)
-    }
+
 
     //% blockId=mbit_stepper_degree block="Stepper 28BYJ-48|%index|degree %degree"
     //% weight=90
