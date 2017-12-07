@@ -7,7 +7,7 @@ load dependency
 
 //#31C7D5
 //#C814B8
-//% color="#C814B8" weight=10 icon="\uf1d0"
+//% color="#C814B8" weight=10 icon="\uf29d" 
 namespace mbit {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
