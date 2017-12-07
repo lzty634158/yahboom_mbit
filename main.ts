@@ -5,8 +5,9 @@ load dependency
 "mbit": "file:../pxt-mbit"
 */
 
-
-//% color="#31C7D5" weight=10 icon="\uf1d1"
+//#31C7D5
+//#C814B8
+//% color="#C814B8" weight=10 icon="\uf1d0"
 namespace mbit {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
