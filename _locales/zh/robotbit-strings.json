@@ -1,15 +1,15 @@
 {
-	"robotbit.Servo|block": "舵0机|%index|角度 %degree",
-	"robotbit.StepperDegree|block": "步进 28BYJ-48|%index|角度 %degree",
-	"robotbit.StepperTurn|block": "步进 28BYJ-48|%index|圈数 %turn",
-	"robotbit.StepperDual|block": "双步进(角度) |M1 %degree1| M2 %degree2",
-	"robotbit.MotorRun|block": "电机|%index|速度 %speed",
-	"robotbit.MotorRunDual|block": "电机|%motor1|速度 %speed1|%motor2|速度 %speed2",
-	"robotbit.MotorRunDelay|block": "电机|%index|速度 %speed|延时 %delay|s",
-	"robotbit.MotorStop|block": "电机 停止|%index|",
-	"robotbit.MotorStopAll|block": "停止所有电机",
-	"robotbit.Ultrasonic|block": "超声波|引脚 %pin",
-	"robotbit.MatrixDraw|block": "LED矩阵 描点|X %x|Y %y",
-	"robotbit.MatrixClear|block": "LED矩阵 清空",
-	"robotbit.Car|block": "小车控制|%index|速度 %degree"
+	"mbit.Servo|block": "舵0机|%index|角度 %degree",
+	"mbit.StepperDegree|block": "步进 28BYJ-48|%index|角度 %degree",
+	"mbit.StepperTurn|block": "步进 28BYJ-48|%index|圈数 %turn",
+	"mbit.StepperDual|block": "双步进(角度) |M1 %degree1| M2 %degree2",
+	"mbit.MotorRun|block": "电机|%index|速度 %speed",
+	"mbit.MotorRunDual|block": "电机|%motor1|速度 %speed1|%motor2|速度 %speed2",
+	"mbit.MotorRunDelay|block": "电机|%index|速度 %speed|延时 %delay|s",
+	"mbit.MotorStop|block": "电机 停止|%index|",
+	"mbit.MotorStopAll|block": "停止所有电机",
+	"mbit.Ultrasonic|block": "超声波|引脚 %pin",
+	"mbit.MatrixDraw|block": "LED矩阵 描点|X %x|Y %y",
+	"mbit.MatrixClear|block": "LED矩阵 清空",
+	"mbit.Car|block": "小车控制|%index|速度 %degree"
 }
