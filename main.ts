@@ -355,7 +355,7 @@ namespace mbit {
 
     //% blockId=mbit_matrix_draw block="Matrix Draw|X %x|Y %y"
     //% weight=69
-    export function MatrixDraw(x: number, y: number): void {
+    /*export function MatrixDraw(x: number, y: number): void {
         if (!initializedMatrix) {
             matrixInit();
             initializedMatrix = true;
@@ -363,7 +363,7 @@ namespace mbit {
         let idx = y * 2 + x / 8;
         matBuf[idx + 1] |= (1 << (x % 8));
         matrixShow();
-    }
+    }*/
 
 	/*
     //% blockId=mbit_matrix_clean block="Matrix Clean|X %x|Y %y"
@@ -383,7 +383,7 @@ namespace mbit {
     //% blockId=mbit_matrix_clear block="Matrix Clear"
     //% weight=65
     //% blockGap=50
-    export function MatrixClear(): void {
+    /*export function MatrixClear(): void {
         if (!initializedMatrix) {
             matrixInit();
             initializedMatrix = true;
@@ -392,7 +392,7 @@ namespace mbit {
             matBuf[i + 1] = 0;
         }
         matrixShow();
-    }
+    }*/
 
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin %pin"
     //% weight=10
