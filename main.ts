@@ -6,7 +6,7 @@ load dependency
 */
 /*icon="\uf1b9" */
 
-//% color="#C814B8" weight=10  icon="\uf113"
+//% color="#C814B8" weight=10 icon="\uf1d4"
 namespace mbit {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
@@ -420,7 +420,7 @@ namespace mbit {
         pins.digitalWritePin(pin1, 0);
 
         // read pulse
-        let d = pins.pulseIn(pin2, PulseValue.High, 11600);
+        let d = pins.pulseIn(pin2, PulseValue.High, 23200);
         return d / 58;
     }
 
