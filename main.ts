@@ -408,20 +408,20 @@ namespace mbit {
         matrixShow();
     }*/
 
-    //% blockId=mbit_ultrasonic block="Ultrasonic|Trig %Trig|Echo %Echo"
+    //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
     //% weight=10
-    export function Ultrasonic(Trig: DigitalPin, Echo: DigitalPin): number {
+    export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
 
         // send pulse
-        pins.setPull(Trig, PinPullMode.PullNone);
-        pins.digitalWritePin(Trig, 0);
+        pins.setPull(pin1, PinPullMode.PullNone);
+        pins.digitalWritePin(pin1, 0);
         control.waitMicros(2);
-        pins.digitalWritePin(Trig, 1);
+        pins.digitalWritePin(pin1, 1);
         control.waitMicros(10);
-        pins.digitalWritePin(Trig, 0);
+        pins.digitalWritePin(pin1, 0);
 
         // read pulse
-        let d = pins.pulseIn(Echo, PulseValue.High, 11600);
+        let d = pins.pulseIn(pin2, PulseValue.High, 11600);
         return d / 58;
     }
 
