@@ -410,6 +410,7 @@ namespace mbit {
 
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
     //% weight=10
+    //% icon="\uf113"
     export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
 
         // send pulse
