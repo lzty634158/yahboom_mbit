@@ -6,7 +6,7 @@ load dependency
 */
 /*icon="\uf1b9" */
 
-//% color="#C814B8" weight=10 
+//% color="#C814B8" weight=10  icon="\uf113"
 namespace mbit {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
@@ -408,7 +408,7 @@ namespace mbit {
     }*/
 
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
-    //% color="#00F4B8" weight=10 icon="\uf113"
+    //% color="#00F418" weight=10
     export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
 
         // send pulse
