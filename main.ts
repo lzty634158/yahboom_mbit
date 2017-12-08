@@ -4,10 +4,9 @@ modified from pxt-servo/servodriver.ts
 load dependency
 "mbit": "file:../pxt-mbit"
 */
+/*icon="\uf1b9" */
 
-//#31C7D5
-//#C814B8
-//% color="#C814B8" weight=10 icon="\uf1b9" 
+//% color="#C814B8" weight=10 
 namespace mbit {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
@@ -409,8 +408,7 @@ namespace mbit {
     }*/
 
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
-    //% weight=10
-    //% icon="\uf113"
+    //% color="#00F4B8" weight=10 icon="\uf113"
     export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
 
         // send pulse
