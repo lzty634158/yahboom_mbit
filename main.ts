@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 R
 modified from pxt-servo/servodriver.ts
 load dependency
@@ -96,9 +96,9 @@ namespace mbit {
     }
 
     export enum enVoice {
-        //% blockId="Voice" block="ÓÐÉùÒô"
+        //% blockId="Voice" block="æœ‰å£°éŸ³"
         Voice = 0,
-        //% blockId="NoVoice" block="ÎÞÉùÒô"
+        //% blockId="NoVoice" block="æ— å£°éŸ³"
         NoVoice = 1
     }
 
