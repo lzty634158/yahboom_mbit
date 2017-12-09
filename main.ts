@@ -198,12 +198,42 @@ namespace mbit {
         matBuf[0] = 0x00;
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
-		
-		//% blockId=mbit_CarCtrl block="CarCtrl|%index"
+    
+    //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
+    //% color="#00F418" weight=10
+    export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
+
+        // send pulse
+        pins.setPull(pin1, PinPullMode.PullNone);
+        pins.digitalWritePin(pin1, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(pin1, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(pin1, 0);
+
+        // read pulse
+        let d = pins.pulseIn(pin2, PulseValue.High, 23200);
+        return d / 58;
+    }
+    
+    //% blockId=mbit_Buzzer block="Buzzer|pin %pin|value %value"
+    //% weight=100
+    //% blockGap=50
+    //% value.min=0 value.max=1
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Buzzer(pin: DigitalPin, value: num): void {
+        
+        pins.setPull(pin, PinPullMode.PullNone);
+        pins.digitalWritePin(pin, value);
+			
+    }
+    
+    
+    //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-		export function CarCtrl(index: CarState): void {
+    export function CarCtrl(index: CarState): void {
         
 			if (!initialized) {
 			    initPCA9685()
@@ -214,7 +244,7 @@ namespace mbit {
       //setPwm(index + 7, 0, value)
     }
 
-	/**
+    /**
      * Init RGB pixels mounted on mbit
      */
     //% blockId="mbit_rgb" block="RGB"
@@ -407,22 +437,7 @@ namespace mbit {
         matrixShow();
     }*/
 
-    //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
-    //% color="#00F418" weight=10
-    export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
 
-        // send pulse
-        pins.setPull(pin1, PinPullMode.PullNone);
-        pins.digitalWritePin(pin1, 0);
-        control.waitMicros(2);
-        pins.digitalWritePin(pin1, 1);
-        control.waitMicros(10);
-        pins.digitalWritePin(pin1, 0);
-
-        // read pulse
-        let d = pins.pulseIn(pin2, PulseValue.High, 23200);
-        return d / 58;
-    }
 
 
 }
