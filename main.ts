@@ -96,10 +96,12 @@ namespace mbit {
     }
 
     export enum enVoice {
-        ÓÐÉùÒô = 0,
-        ÎÞÉùÒô = 1
+        //% blockId="Voice" block="ÓÐÉùÒô"
+        Voice = 0,
+        //% blockId="Voice" block="ÎÞÉùÒô"
+        NoVoice = 1
     }
-    export var strVoice: Array<string> = ['ÓÐÉùÒô', 'ÎÞÉùÒô'];  
+
 
     let initialized = false
     let initializedMatrix = false
