@@ -96,8 +96,8 @@ namespace mbit {
     }
 
     export enum enVoice {
-        Voice = 0,
-        NoVoice = 1
+        ÓÐÉùÒô = 0,
+        ÎÞÉùÒô = 1
     }
     export var strVoice: Array<string> = ['ÓÐÉùÒô', 'ÎÞÉùÒô'];  
 
@@ -238,23 +238,14 @@ namespace mbit {
     //% weight=100
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Voice_Sensor(pin: DigitalPin, value: strVoice): boolean {
+    export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
         
-        if (pins.digitalReadPin(pin) == 0) {
-            if (strVoice == "ÓÐÉùÒô") {
-                return true;
-            }
-            else
-                return false;
-
+        if (pins.digitalReadPin(pin) == enVoice) {
+            return true;  
         }
         else {
-            if (strVoice == "ÎÞÉùÒô") {
-                return true;
-            }
-            else
-                return false;
+            return false;
         }
 
     }
