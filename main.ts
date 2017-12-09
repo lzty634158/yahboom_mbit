@@ -99,6 +99,7 @@ namespace mbit {
         Voice = 0,
         NoVoice = 1
     }
+    export var strVoice: Array<string> = ['ÓÐÉùÒô', 'ÎÞÉùÒô'];  
 
     let initialized = false
     let initializedMatrix = false
@@ -236,17 +237,25 @@ namespace mbit {
     //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
     //% weight=100
     //% blockGap=50
-    //% value.min=0 value.max=1
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
+    export function Voice_Sensor(pin: DigitalPin, value: strVoice): boolean {
 
-        pins.setPull(pin, PinPullMode.PullNone);
-        pins.digitalWritePin(pin, value);
-        if (pins.digitalReadPin(pin) == enVoice) {
-            return true;
+        
+        if (pins.digitalReadPin(pin) == 0) {
+            if (strVoice == "ÓÐÉùÒô") {
+                return true;
+            }
+            else
+                return false;
+
         }
-        else
-            return false;
+        else {
+            if (strVoice == "ÎÞÉùÒô") {
+                return true;
+            }
+            else
+                return false;
+        }
 
     }
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
