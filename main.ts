@@ -344,7 +344,18 @@ namespace mbit {
         pins.analogWritePin(pin, value); 
 
     }
+   
+    //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
+    //% weight=100
+    //% blockGap=50
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function RGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
 
+        pins.analogWritePin(pin1, value1 * 1023 / 255); 
+        pins.analogWritePin(pin2, value2 * 1023 / 255); 
+        pins.analogWritePin(pin3, value3 * 1023 / 255); 
+
+    }
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
     //% blockGap=50
