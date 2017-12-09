@@ -333,6 +333,18 @@ namespace mbit {
             return false;
 
     }
+
+    //% blockId=mbit_Fan block="Fan|pin %pin|speed %value"
+    //% weight=100
+    //% blockGap=50
+     //% value.min=0 value.max=1023
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Fan(pin: AnalogPin, value: number): void {
+
+        pins.analogWritePin(pin, value); 
+
+    }
+
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
     //% blockGap=50
