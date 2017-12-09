@@ -221,7 +221,7 @@ namespace mbit {
     //% blockGap=50
     //% value.min=0 value.max=1
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Buzzer(pin: DigitalPin, value: num): void {
+    export function Buzzer(pin: DigitalPin, value: number): void {
         
         pins.setPull(pin, PinPullMode.PullNone);
         pins.digitalWritePin(pin, value);
