@@ -98,7 +98,7 @@ namespace mbit {
     export enum enVoice {
         //% blockId="Voice" block="спиЫрТ"
         Voice = 0,
-        //% blockId="Voice" block="нчиЫрТ"
+        //% blockId="NoVoice" block="нчиЫрТ"
         NoVoice = 1
     }
 
