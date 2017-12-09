@@ -346,10 +346,10 @@ namespace mbit {
     }
    
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
-    //% weight=100
-    //% blockGap=50
+    //% weight=300
+    //% blockGap=20
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=8
     export function RGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
 
         pins.analogWritePin(pin1, value1 * 1023 / 255); 
