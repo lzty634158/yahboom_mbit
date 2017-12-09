@@ -101,7 +101,21 @@ namespace mbit {
         //% blockId="NoVoice" block="无声音"
         NoVoice = 1
     }
-
+    
+    export enum enRocker {
+        //% blockId="Nostate" block="无"
+        Nostate = 0,
+        //% blockId="Left" block="左"
+        Left,
+        //% blockId="Right" block="右"
+        Right,
+        //% blockId="Up" block="上"
+        Up,
+        //% blockId="Down" block="下"
+        Down,
+        //% blockId="Press" block="按下"
+        Press
+    }
 
     let initialized = false
     let initializedMatrix = false
@@ -249,6 +263,16 @@ namespace mbit {
         else {
             return false;
         }
+
+    }
+
+    //% blockId=mbit_Rocker block="Rocker|VRX %pin1|VRY %pin2|SW %pin3|value %value"
+    //% weight=100
+    //% blockGap=50
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
+
+        return true;
 
     }
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
