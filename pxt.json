@@ -4,8 +4,8 @@
     "description": "Extension for YahBoom m:bit",
     "license": "MIT",
     "dependencies": {
-        "core": "*"
-        
+        "core": "*",
+         "neopixel": "github:microsoft/pxt-neopixel#v0.3.10"
     },
     "files": [
         "README.md",
