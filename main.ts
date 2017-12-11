@@ -119,12 +119,13 @@ namespace mbit {
 
         for (let i: number = 0; i < 1023; i++) {
             pins.analogWritePin(pin, i);
-            control.waitMicros(100);
+            basic.pause(10);
+            //control.waitMicros(100);
         }
-        control.waitMicros(1000);
+        basic.pause(1000);
         for (let i: number = 1023; i > 0; i--) {
             pins.analogWritePin(pin, i);
-            control.waitMicros(100);
+            basic.pause(10);
         }
 
     }
