@@ -90,13 +90,13 @@ namespace mbit {
         pins.digitalWritePin(pin, value);
 			
     }
-    //% blockId=mbit_LED1 block="LED1|pin %pin|state %state"
+    //% blockId=mbit_LED block="LED1|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function LED1(pin: DigitalPin, state: enLED1): void {
+    export function LED1(pin: DigitalPin, value: enLED1): void {
 
-        pins.digitalWritePin(pin, state);
+        pins.digitalWritePin(pin, value);
 
     }
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
