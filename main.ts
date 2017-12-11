@@ -111,6 +111,22 @@ namespace mbit {
 
     }
 
+    //% blockId=mbit_BreathLED block="BreathLED|pin %pin"
+    //% weight=100
+    //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function BreathLED(pin: AnalogPin): void {
+
+        for (var i = 0; i < 1023; i++) {
+            pins.analogWritePin(pin, i);
+            control.waitMicros(10);
+        }
+        for (var i = 1023; i > 0; i--) {
+            pins.analogWritePin(pin, i);
+            control.waitMicros(10);
+        }
+
+    }
 
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
     //% weight=100
