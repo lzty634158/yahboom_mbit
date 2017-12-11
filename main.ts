@@ -179,24 +179,24 @@ namespace mbit {
         let z = pins.digitalReadPin(pin3);
         let now_state = enRocker.Nostate;
 
-        if (x < 5) // 上
+        if (x < 20) // 上
         {
             
             now_state = enRocker.Up;
 
         }
-        else if (x > 1000) //
+        else if (x > 800) //
         {
           
             now_state = enRocker.Down;
         }
         else  // 左右
         {
-            if (y < 5) //右
+            if (y < 20) //右
             {
                 now_state = enRocker.Right;
             }
-            else if (y > 1000) //左
+            else if (y > 800) //左
             {
                 now_state = enRocker.Left;
             }
