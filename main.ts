@@ -43,7 +43,7 @@ namespace mbit {
         //% blockId="OFF" block="灭"
         OFF = 0,
         //% blockId="ON" block="亮"
-        ON = 1
+        ON =1
     }
     export enum enRocker {
         //% blockId="Nostate" block="无"
@@ -91,7 +91,15 @@ namespace mbit {
 			
     }
 
+    //% blockId=mbit_LED1 block="LED1|pin %pin|state %state"
+    //% weight=100
+    //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function LED1(pin: DigitalPin, state: enLED1): void {
 
+        pins.digitalWritePin(pin, state);
+
+    }
 
     //% blockId=mbit_LED2 block="LED2|pin %pin|value %value"
     //% weight=100
@@ -105,22 +113,7 @@ namespace mbit {
 
     }
 
-    //% blockId=mbit_BreathLED block="BreathLED|pin %pin"
-    //% weight=100
-    //% blockGap=10
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function BreathLED(pin: AnalogPin): void {
 
-        for (var i = 0; i < 255; i++) {
-            pins.analogWritePin(pin, i);
-            control.waitMicros(10);
-        }
-        for (var i = 255; i > 0; i--) {
-            pins.analogWritePin(pin, i);
-            control.waitMicros(10);
-        }
-
-    }
 
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
     //% weight=100
