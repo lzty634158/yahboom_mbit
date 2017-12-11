@@ -43,7 +43,7 @@ namespace mbit {
         //% blockId="OFF" block="灭"
         OFF = 0,
         //% blockId="ON" block="亮"
-        ON
+        ON = 1
     }
     export enum enRocker {
         //% blockId="Nostate" block="无"
