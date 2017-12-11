@@ -91,15 +91,7 @@ namespace mbit {
 			
     }
 
-    //% blockId=mbit_LED1 block="LED1|pin %pin|state %state"
-    //% weight=100
-    //% blockGap=10
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function LED1(pin: DigitalPin, state: enLED1): void {
 
-        pins.digitalWritePin(pin, state);
-
-    }
 
     //% blockId=mbit_LED2 block="LED2|pin %pin|value %value"
     //% weight=100
