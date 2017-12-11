@@ -234,7 +234,9 @@ namespace mbit {
     }
     
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
-    //% color="#00F418" weight=10
+    //% color="#00F418"
+    //% weight=100
+    //% blockGap=10
     export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
 
         // send pulse
@@ -252,7 +254,7 @@ namespace mbit {
     
     //% blockId=mbit_Buzzer block="Buzzer|pin %pin|value %value"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% value.min=0 value.max=1
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Buzzer(pin: DigitalPin, value: number): void {
@@ -264,7 +266,7 @@ namespace mbit {
 
     //% blockId=mbit_LED1 block="LED1|pin %pin|state %state"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function LED1(pin: DigitalPin, state: enLED1): void {
 
@@ -274,7 +276,7 @@ namespace mbit {
 
     //% blockId=mbit_LED2 block="LED2|pin %pin|value %value"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% value.min=0 value.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function LED2(pin: AnalogPin, value: number): void {
@@ -285,8 +287,8 @@ namespace mbit {
     }
 
     //% blockId=mbit_BreathLED block="BreathLED|pin %pin"
-    //% weight=100
-    //% blockGap=50
+    //% weight=50
+    //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function BreathLED(pin: AnalogPin): void {
 
@@ -303,7 +305,7 @@ namespace mbit {
 
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function RGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
@@ -316,7 +318,7 @@ namespace mbit {
 
     //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
@@ -332,7 +334,7 @@ namespace mbit {
 
     //% blockId=mbit_Rocker block="Rocker|VRX %pin1|VRY %pin2|SW %pin3|value %value"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
 
@@ -375,7 +377,7 @@ namespace mbit {
 
     //% blockId=mbit_Fan block="Fan|pin %pin|speed %value"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% value.min=0 value.max=1023
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Fan(pin: AnalogPin, value: number): void {
@@ -386,7 +388,7 @@ namespace mbit {
 
     //% blockId=mbit_TouchPad block="TouchPad|pin %pin|value %value"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function TouchPad(pin: DigitalPin, value: enTouch): boolean {
 
@@ -404,7 +406,7 @@ namespace mbit {
 
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function CarCtrl(index: CarState): void {
         
