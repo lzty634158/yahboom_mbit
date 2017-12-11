@@ -105,14 +105,14 @@ namespace mbit {
     export enum enRocker {
         //% blockId="Nostate" block="无"
         Nostate = 0,
-        //% blockId="Left" block="左"
-        Left,
-        //% blockId="Right" block="右"
-        Right,
         //% blockId="Up" block="上"
         Up,
         //% blockId="Down" block="下"
         Down,
+        //% blockId="Left" block="左"
+        Left,
+        //% blockId="Right" block="右"
+        Right,
         //% blockId="Press" block="按下"
         Press
     }
@@ -291,52 +291,26 @@ namespace mbit {
         let z = pins.digitalReadPin(pin3);
         let now_state = enRocker.Nostate;
 
-        if (x < 5) // 右 右上  右下
+        if (x < 5) // 上
         {
-            /* 
-            if (y < 5) //右下
-            {
-               
-            }
-            else if (y > 1000) //右上
-            {
-                
-            }
-            else // 右
-            {
-               
-            }
-            */
-            now_state = enRocker.Right;
+            
+            now_state = enRocker.Up;
 
         }
-        else if (x > 1000) //左 左上 左下
+        else if (x > 1000) //
         {
-            /*
-            if (y < 5) //左下
-            {
-                
-            }
-            else if (y > 1000) //左上
-            {
-                
-            }
-            else // 左
-            {
-                
-            }
-            */
-            now_state = enRocker.Left;
+          
+            now_state = enRocker.Down;
         }
-        else  // 上下
+        else  // 左右
         {
-            if (y < 5) //下
+            if (y < 5) //右
             {
-                now_state = enRocker.Down;
+                now_state = enRocker.Right;
             }
-            else if (y > 1000) //上
+            else if (y > 1000) //左
             {
-                now_state = enRocker.Up;
+                now_state = enRocker.Left;
             }
         }
         if (z == 0)
