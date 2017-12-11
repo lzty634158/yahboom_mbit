@@ -117,14 +117,11 @@ namespace mbit {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function BreathLED(pin: AnalogPin): void {
 
-        for (var i = 0; i < 1023; i++) {
+        for (let i: number = 0; i < 1023; i++) {
             pins.analogWritePin(pin, i);
-            //control.waitMicros(10);
+            control.waitMicros(10);
         }
-        for (var i = 1023; i > 0; i--) {
-            pins.analogWritePin(pin, i);
-            //control.waitMicros(10);
-        }
+        
 
     }
 
