@@ -287,7 +287,7 @@ namespace mbit {
     }
 
     //% blockId=mbit_BreathLED block="BreathLED|pin %pin"
-    //% weight=50
+    //% weight=100
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function BreathLED(pin: AnalogPin): void {
