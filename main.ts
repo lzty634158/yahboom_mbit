@@ -18,7 +18,14 @@ namespace mbit {
     		Car_SpinLeft = 0x6,
     		Car_SpinRight = 0x7
     }
+    
+    export enum enBuzzer {
 
+        //% blockId="NoBeep" block="不响"
+        NoBeep = 0,
+        //% blockId="Beep" block="响"
+        Beep
+    }
     export enum enVoice {
         //% blockId="Voice" block="有声音"
         Voice = 0,
@@ -77,7 +84,7 @@ namespace mbit {
     //% blockGap=10
     //% value.min=0 value.max=1
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Buzzer(pin: DigitalPin, value: number): void {
+    export function Buzzer(pin: DigitalPin, value: enBuzzer): void {
         
         pins.setPull(pin, PinPullMode.PullNone);
         pins.digitalWritePin(pin, value);
