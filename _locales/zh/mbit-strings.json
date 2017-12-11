@@ -2,7 +2,6 @@
   "mbit.Buzzer|block": "有源蜂鸣器|引脚 %pin|值 %value",
   "mbit.LED1|block": "LED灯|引脚 %pin|状态 %value",
   "mbit.LED2|block": "LED灯2|引脚 %pin|亮度 %value",
-  "mbit.BreathLED|block": "呼吸灯|引脚 %pin",
   "mbit.RGB|block": "RGB七彩灯|引脚R %pin1|引脚G %pin2|引脚B %pin3|红色 %value1|绿色 %value2|蓝色 %value3",
   "mbit.Voice_Sensor|block": "声音传感器|引脚 %pin|返回 %value",
   "mbit.Rocker|block": "遥杆|VRX %pin1|VRY %pin2|SW %pin3|返回 %value",
