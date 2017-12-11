@@ -270,7 +270,7 @@ namespace mbit {
     export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
 
-        if (pins.digitalReadPin(pin) == enVoice) {
+        if (pins.digitalReadPin(pin) == value) {
             return true;
         }
         else {
