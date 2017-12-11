@@ -90,7 +90,7 @@ namespace mbit {
         pins.digitalWritePin(pin, value);
 			
     }
-    //% blockId=mbit_LED block="LED1|pin %pin|value %value"
+    //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
