@@ -10,13 +10,20 @@ load dependency
 namespace mbit {
    
     export enum CarState {
-    		Car_Run = 0x1,
-    		Car_Back = 0x2,
-    		Car_Left = 0x3,
-    		Car_Right = 0x4,
-    		Car_Stop = 0x5,
-    		Car_SpinLeft = 0x6,
-    		Car_SpinRight = 0x7
+        //% blockId="Car_Run" block="前行"
+        Car_Run = 0x1,
+         //% blockId="Car_Back" block="后退"
+        Car_Back = 0x2,
+         //% blockId="Car_Left" block="左转"
+    	Car_Left = 0x3,
+         //% blockId="Car_Right" block="右转"
+        Car_Right = 0x4,
+         //% blockId="Car_Stop" block="停止"
+        Car_Stop = 0x5,
+         //% blockId="Car_SpinLeft" block="原地左旋"
+        Car_SpinLeft = 0x6,
+         //% blockId="Car_SpinRight" block="原地右旋"
+    	Car_SpinRight = 0x7
     }
     
     export enum enBuzzer {
@@ -230,14 +237,51 @@ namespace mbit {
 
     }
 
+    function Car_run() {
+        pins.digitalWritePin(DigitalPin.P0, 1);
+        pins.digitalWritePin(DigitalPin.P8, 0);
+        pins.digitalWritePin(DigitalPin.P1, 1);
+        pins.digitalWritePin(DigitalPin.P16, 0);
+    }
 
+    function Car_back() {
+
+    }
+
+    function Car_left() {
+
+    }
+
+    function Car_right() {
+
+    }
+
+    function Car_stop() {
+
+    }
+
+    function Car_spinleft() {
+
+    }
+
+    function Car_spinright() {
+
+    }
 
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function CarCtrl(index: CarState): void {
-
+        switch (index) {
+            case CarState.Car_Run: Car_run(); break;
+            case CarState.Car_Back: break;
+            case CarState.Car_Left: break;
+            case CarState.Car_Right: break;
+            case CarState.Car_Stop: break;
+            case CarState.Car_SpinLeft: break;
+            case CarState.Car_SpinRight: break;
+        }
     }
 
 }
