@@ -269,7 +269,7 @@ namespace mbit {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
-
+        pins.setPull(pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(pin) == value) {
             return true;
         }
