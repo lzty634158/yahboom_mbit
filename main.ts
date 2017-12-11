@@ -107,6 +107,13 @@ namespace mbit {
         //% blockId="Touch" block="触摸"
         Touch = 1
     }
+    export enum enLED1 {
+        
+        //% blockId="OFF" block="灭"
+        OFF = 0,
+        //% blockId="ON" block="亮"
+        ON
+    }
     export enum enRocker {
         //% blockId="Nostate" block="无"
         Nostate = 0,
@@ -255,6 +262,28 @@ namespace mbit {
 			
     }
 
+    //% blockId=mbit_LED1 block="LED1|pin %pin|state %state"
+    //% weight=100
+    //% blockGap=50
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function LED1(pin: DigitalPin, state: enLED1): void {
+
+        pins.digitalWritePin(pin, state);
+
+    }
+
+    //% blockId=mbit_LED2 block="LED2|pin %pin|value %value"
+    //% weight=100
+    //% blockGap=50
+    //% value.min=0 value.max=255
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function LED2(pin: AnalogPin, value: number): void {
+
+        pins.setPull(pin, PinPullMode.PullUp);
+        pins.analogWritePin(pin, value * 1024 / 256);
+
+    }
+
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
     //% weight=100
     //% blockGap=50
@@ -262,9 +291,9 @@ namespace mbit {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function RGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
 
-        pins.analogWritePin(pin1, value1 * 1023 / 255);
-        pins.analogWritePin(pin2, value2 * 1023 / 255);
-        pins.analogWritePin(pin3, value3 * 1023 / 255);
+        pins.analogWritePin(pin1, value1 * 1024 / 256);
+        pins.analogWritePin(pin2, value2 * 1024 / 256);
+        pins.analogWritePin(pin3, value3 * 1024 / 256);
 
     }
 
