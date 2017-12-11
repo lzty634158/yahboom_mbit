@@ -279,6 +279,85 @@ namespace mbit {
 
     }
 
+    //% blockId=mbit_Rocker block="Rocker|VRX %pin1|VRY %pin2|SW %pin3|value %value"
+    //% weight=100
+    //% blockGap=50
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
+
+        let x = pins.analogReadPin(pin1);
+        let y = pins.analogReadPin(pin2);
+        let z = pins.digitalReadPin(pin3);
+        let now_state = enRocker.Nostate;
+
+        if (x < 5) // 右 右上  右下
+        {
+            /* 
+            if (y < 5) //右下
+            {
+               
+            }
+            else if (y > 1000) //右上
+            {
+                
+            }
+            else // 右
+            {
+               
+            }
+            */
+            now_state = enRocker.Right;
+
+        }
+        else if (x > 1000) //左 左上 左下
+        {
+            /*
+            if (y < 5) //左下
+            {
+                
+            }
+            else if (y > 1000) //左上
+            {
+                
+            }
+            else // 左
+            {
+                
+            }
+            */
+            now_state = enRocker.Left;
+        }
+        else  // 上下
+        {
+            if (y < 5) //下
+            {
+                now_state = enRocker.Down;
+            }
+            else if (y > 1000) //上
+            {
+                now_state = enRocker.Up;
+            }
+        }
+        if (z == 0)
+            now_state = enRocker.Press;
+        if (now_state == value)
+            return true;
+        else
+            return false;
+
+    }
+
+    //% blockId=mbit_Fan block="Fan|pin %pin|speed %value"
+    //% weight=100
+    //% blockGap=50
+    //% value.min=0 value.max=1023
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Fan(pin: AnalogPin, value: number): void {
+
+        pins.analogWritePin(pin, value);
+
+    }
+
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
     //% blockGap=50
