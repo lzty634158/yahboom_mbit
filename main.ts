@@ -11,19 +11,19 @@ namespace mbit {
    
     export enum CarState {
         //% blockId="Car_Run" block="前行"
-        Car_Run = 0x1,
-         //% blockId="Car_Back" block="后退"
-        Car_Back = 0x2,
-         //% blockId="Car_Left" block="左转"
-    	Car_Left = 0x3,
-         //% blockId="Car_Right" block="右转"
-        Car_Right = 0x4,
-         //% blockId="Car_Stop" block="停止"
-        Car_Stop = 0x5,
-         //% blockId="Car_SpinLeft" block="原地左旋"
-        Car_SpinLeft = 0x6,
-         //% blockId="Car_SpinRight" block="原地右旋"
-    	Car_SpinRight = 0x7
+        Car_Run = 1,
+        //% blockId="Car_Back" block="后退"
+        Car_Back = 2,
+        //% blockId="Car_Left" block="左转"
+    	Car_Left = 3,
+        //% blockId="Car_Right" block="右转"
+        Car_Right = 4,
+        //% blockId="Car_Stop" block="停止"
+        Car_Stop = 5,
+        //% blockId="Car_SpinLeft" block="原地左旋"
+        Car_SpinLeft = 6,
+        //% blockId="Car_SpinRight" block="原地右旋"
+    	Car_SpinRight = 7
     }
     
     export enum enBuzzer {
