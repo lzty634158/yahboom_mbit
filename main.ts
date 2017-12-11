@@ -263,6 +263,22 @@ namespace mbit {
 
     }
 
+    //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
+    //% weight=100
+    //% blockGap=50
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
+
+
+        if (pins.digitalReadPin(pin) == enVoice) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
     //% blockGap=50

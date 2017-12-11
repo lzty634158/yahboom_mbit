@@ -1,6 +1,7 @@
 {
   "mbit.Buzzer|block": "有源蜂鸣器|引脚 %pin|值 %value",
   "mbit.RGB|block": "RGB七彩灯|引脚R %pin1|引脚G %pin2|引脚B %pin3|红色 %value1|绿色 %value2|蓝色 %value3",
+  "mbit.Voice_Sensor|block": "声音传感器|引脚 %pin|返回 %value",
   "mbit.CarCtrl|block": "小车控制|%index",
   "mbit.MotorRun|block": "电机|%index|速度 %speed",
   "mbit.MotorRunDelay|block": "电机|%index|速度 %speed|延时 %delay|s",
