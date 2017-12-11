@@ -101,7 +101,12 @@ namespace mbit {
         //% blockId="NoVoice" block="无声音"
         NoVoice = 1
     }
-    
+    export enum enTouch {
+        //% blockId="NoTouch" block="未触摸"
+        NoTouch = 0,
+        //% blockId="Touch" block="触摸"
+        Touch = 1
+    }
     export enum enRocker {
         //% blockId="Nostate" block="无"
         Nostate = 0,
@@ -332,6 +337,24 @@ namespace mbit {
         pins.analogWritePin(pin, value);
 
     }
+
+    //% blockId=mbit_TouchPad block="TouchPad|pin %pin|value %value"
+    //% weight=100
+    //% blockGap=50
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function TouchPad(pin: DigitalPin, value: enTouch): boolean {
+
+        pins.setPull(pin, PinPullMode.PullUp);
+        if (pins.digitalReadPin(pin) == value) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+
 
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
