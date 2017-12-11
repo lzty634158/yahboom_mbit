@@ -285,6 +285,7 @@ namespace mbit {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
 
+        pins.setPull(pin3, PinPullMode.PullUp);
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
         let z = pins.digitalReadPin(pin3);
