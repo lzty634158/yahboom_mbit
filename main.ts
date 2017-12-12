@@ -8,34 +8,8 @@ load dependency
 
 //% color="#C814B8" weight=10 icon="\uf1d4"
 namespace mbit_显示类 {
-   
     
-    
-    export enum enBuzzer {
 
-        //% blockId="NoBeep" block="不响"
-        NoBeep = 0,
-        //% blockId="Beep" block="响"
-        Beep
-    }
-    export enum enMusic {
-
-        dadadum = 0,
-        birthday
-    }
-
-    export enum enVoice {
-        //% blockId="Voice" block="有声音"
-        Voice = 0,
-        //% blockId="NoVoice" block="无声音"
-        NoVoice = 1
-    }
-    export enum enTouch {
-        //% blockId="NoTouch" block="未触摸"
-        NoTouch = 0,
-        //% blockId="Touch" block="触摸"
-        Touch = 1
-    }
     export enum enLED1 {
         
         //% blockId="OFF" block="灭"
@@ -43,39 +17,7 @@ namespace mbit_显示类 {
         //% blockId="ON" block="亮"
         ON =1
     }
-    export enum enRocker {
-        //% blockId="Nostate" block="无"
-        Nostate = 0,
-        //% blockId="Up" block="上"
-        Up,
-        //% blockId="Down" block="下"
-        Down,
-        //% blockId="Left" block="左"
-        Left,
-        //% blockId="Right" block="右"
-        Right,
-        //% blockId="Press" block="按下"
-        Press
-    }
-
     
-    export enum enPos {
-
-        //% blockId="LeftState" block="左边状态"
-        LeftState = 0,
-        //% blockId="MiddleState" block="中间状态"
-        MiddleState = 1,
-        //% blockId="RightState" block="右边状态"
-        RightState = 2
-    }
-
-    export enum enLineState {
-        //% blockId="White" block="白线"
-        White = 0,
-        //% blockId="Black" block="黑线"
-        Black = 1
-        
-    }
 
     //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
     //% weight=100
@@ -134,6 +76,81 @@ namespace mbit_显示类 {
         pins.analogWritePin(pin3, value3 * 1024 / 256);
 
     }
+
+   
+}
+
+//% color="#C814B8" weight=10 icon="\uf1d4"
+namespace mbit_传感器类 {
+
+    export enum enVoice {
+        //% blockId="Voice" block="有声音"
+        Voice = 0,
+        //% blockId="NoVoice" block="无声音"
+        NoVoice = 1
+    }
+
+    //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
+    //% weight=100
+    //% blockGap=10
+    //% color="#808080"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=7
+    export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
+
+        pins.setPull(pin, PinPullMode.PullUp);
+        if (pins.digitalReadPin(pin) == value) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+    //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
+    //% color="#00F418"
+    //% weight=100
+    //% blockGap=10
+    export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
+
+        // send pulse
+        pins.setPull(pin1, PinPullMode.PullNone);
+        pins.digitalWritePin(pin1, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(pin1, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(pin1, 0);
+
+        // read pulse
+        let d = pins.pulseIn(pin2, PulseValue.High, 23200);
+        return d / 58;
+    }
+}
+
+//% color="#C814B8" weight=10 icon="\uf1d4"
+namespace mbit_输入类 {
+
+    export enum enRocker {
+        //% blockId="Nostate" block="无"
+        Nostate = 0,
+        //% blockId="Up" block="上"
+        Up,
+        //% blockId="Down" block="下"
+        Down,
+        //% blockId="Left" block="左"
+        Left,
+        //% blockId="Right" block="右"
+        Right,
+        //% blockId="Press" block="按下"
+        Press
+    }
+
+    export enum enTouch {
+        //% blockId="NoTouch" block="未触摸"
+        NoTouch = 0,
+        //% blockId="Touch" block="触摸"
+        Touch = 1
+    }
+
     //% blockId=mbit_TouchPad block="TouchPad|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
@@ -193,22 +210,18 @@ namespace mbit_显示类 {
             return false;
 
     }
+        
+}
 
-    //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
-    //% weight=100
-    //% blockGap=10
-    //% color="#808080"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=7
-    export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
-        pins.setPull(pin, PinPullMode.PullUp);
-        if (pins.digitalReadPin(pin) == value) {
-            return true;
-        }
-        else {
-            return false;
-        }
+//% color="#C814B8" weight=10 icon="\uf1d4"
+namespace mbit_音乐类 {
+    export enum enBuzzer {
 
+        //% blockId="NoBeep" block="不响"
+        NoBeep = 0,
+        //% blockId="Beep" block="响"
+        Beep
     }
 
     //% blockId=mbit_Buzzer block="Buzzer|pin %pin|value %value"
@@ -224,6 +237,11 @@ namespace mbit_显示类 {
 
     }
 
+}
+
+//% color="#C814B8" weight=10 icon="\uf1d4"
+namespace mbit_电机类 {
+
     //% blockId=mbit_Fan block="Fan|pin %pin|speed %value"
     //% weight=100
     //% blockGap=10
@@ -236,85 +254,34 @@ namespace mbit_显示类 {
 
     }
 
-    //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
-    //% color="#00F418"
-    //% weight=100
-    //% blockGap=10
-    export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
-
-        // send pulse
-        pins.setPull(pin1, PinPullMode.PullNone);
-        pins.digitalWritePin(pin1, 0);
-        control.waitMicros(2);
-        pins.digitalWritePin(pin1, 1);
-        control.waitMicros(10);
-        pins.digitalWritePin(pin1, 0);
-
-        // read pulse
-        let d = pins.pulseIn(pin2, PulseValue.High, 23200);
-        return d / 58;
-    }
-   
-
-    //% blockId=mbit_Music_Car block="Music_Car|%index"
-    //% weight=100
-    //% blockGap=10
-    //% color="#7FFFAA"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=11
-    export function Music_Car(index: enMusic): void {
-        switch (index) {
-            case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;
-            case enMusic.birthday: music.beginMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once); break;
-            /*case enMusic.Car_Left: Car_left(); break;
-            case enMusic.Car_Right: Car_right(); break;
-            case enMusic.Car_Stop: Car_stop(); break;
-            case enMusic.Car_SpinLeft: Car_spinleft(); break;
-            case enMusic.Car_SpinRight: Car_spinright(); break;*/
-        }
-    }
-    
-    //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|direct %direct|value %value"
-    //% weight=100
-    //% blockGap=10
-    //% color="#7FFFAA"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
-    export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
-
-        //pins.setPull(pin1, PinPullMode.PullUp);
-        //pins.setPull(pin2, PinPullMode.PullUp);
-        //pins.setPull(pin3, PinPullMode.PullUp);
-        let temp: boolean = false; 
-        switch (direct) {
-            case enPos.LeftState:{
-                if (pins.digitalReadPin(pin1) == value)
-                    temp = true;
-                else
-                    temp = false;
-                break;
-            }
-            case enPos.MiddleState:{
-                if (pins.digitalReadPin(pin2) == value)
-                    temp = true;
-                else
-                    temp = false;
-                break;
-            }
-            case enPos.RightState:{
-                if (pins.digitalReadPin(pin3) == value)
-                    temp = true;
-                else
-                    temp = false;
-                break;
-            }
-        }
-        return temp;
-       
-    }
 }
 
 //% color="#C814B8" weight=10 icon="\uf1d4"
+namespace mbit_小车类 {
 
-namespace mbit_car {
+    export enum enMusic {
+
+        dadadum = 0,
+        birthday
+    }
+    export enum enPos {
+
+        //% blockId="LeftState" block="左边状态"
+        LeftState = 0,
+        //% blockId="MiddleState" block="中间状态"
+        MiddleState = 1,
+        //% blockId="RightState" block="右边状态"
+        RightState = 2
+    }
+
+    export enum enLineState {
+        //% blockId="White" block="白线"
+        White = 0,
+        //% blockId="Black" block="黑线"
+        Black = 1
+
+    }
+
     export enum CarState {
         //% blockId="Car_Run" block="前行"
         Car_Run = 1,
@@ -398,5 +365,59 @@ namespace mbit_car {
             case CarState.Car_SpinLeft: Car_spinleft(); break;
             case CarState.Car_SpinRight: Car_spinright(); break;
         }
+    }
+    //% blockId=mbit_Music_Car block="Music_Car|%index"
+    //% weight=100
+    //% blockGap=10
+    //% color="#7FFFAA"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=11
+    export function Music_Car(index: enMusic): void {
+        switch (index) {
+            case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;
+            case enMusic.birthday: music.beginMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once); break;
+            /*case enMusic.Car_Left: Car_left(); break;
+            case enMusic.Car_Right: Car_right(); break;
+            case enMusic.Car_Stop: Car_stop(); break;
+            case enMusic.Car_SpinLeft: Car_spinleft(); break;
+            case enMusic.Car_SpinRight: Car_spinright(); break;*/
+        }
+    }
+
+    //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|direct %direct|value %value"
+    //% weight=100
+    //% blockGap=10
+    //% color="#7FFFAA"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
+    export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
+
+        //pins.setPull(pin1, PinPullMode.PullUp);
+        //pins.setPull(pin2, PinPullMode.PullUp);
+        //pins.setPull(pin3, PinPullMode.PullUp);
+        let temp: boolean = false;
+        switch (direct) {
+            case enPos.LeftState: {
+                if (pins.digitalReadPin(pin1) == value)
+                    temp = true;
+                else
+                    temp = false;
+                break;
+            }
+            case enPos.MiddleState: {
+                if (pins.digitalReadPin(pin2) == value)
+                    temp = true;
+                else
+                    temp = false;
+                break;
+            }
+            case enPos.RightState: {
+                if (pins.digitalReadPin(pin3) == value)
+                    temp = true;
+                else
+                    temp = false;
+                break;
+            }
+        }
+        return temp;
+
     }
 }
