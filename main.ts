@@ -22,7 +22,7 @@ namespace mbit_显示类 {
     //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
-    //% color="#F08080"
+    //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
     export function LED1(pin: DigitalPin, value: enLED1): void {
 
@@ -33,7 +33,7 @@ namespace mbit_显示类 {
     //% blockId=mbit_LED2 block="LED2|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
-    //% color="#F08080"
+    //% color="#C814B8"
     //% value.min=0 value.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=2
     export function LED2(pin: AnalogPin, value: number): void {
@@ -45,7 +45,7 @@ namespace mbit_显示类 {
     //% blockId=mbit_BreathLED block="BreathLED|pin %pin"
     //% weight=100
     //% blockGap=10
-    //% color="#F08080"
+    //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=3
     export function BreathLED(pin: AnalogPin): void {
 
@@ -66,7 +66,7 @@ namespace mbit_显示类 {
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
     //% weight=100
     //% blockGap=10
-    //% color="#F08080"
+    //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function RGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
@@ -80,7 +80,7 @@ namespace mbit_显示类 {
    
 }
 
-//% color="#808080" weight=10 icon="\uf1b6"
+//% color="#00FF7F" weight=10 icon="\uf1b6"
 namespace mbit_传感器类 {
 
     export enum enVoice {
@@ -93,7 +93,7 @@ namespace mbit_传感器类 {
     //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
-    //% color="#808080"
+    //% color="#00FF7F"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=7
     export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
@@ -107,7 +107,7 @@ namespace mbit_传感器类 {
 
     }
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
-    //% color="#00F418"
+    //% color="#00FF7F"
     //% weight=100
     //% blockGap=10
     export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
@@ -227,7 +227,7 @@ namespace mbit_音乐类 {
     //% blockId=mbit_Buzzer block="Buzzer|pin %pin|value %value"
     //% weight=100
     //% blockGap=10 
-    //% color="#7FFFAA"
+    //% color="#D2691E"
     //% value.min=0 value.max=1
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=8
     export function Buzzer(pin: DigitalPin, value: enBuzzer): void {
@@ -245,7 +245,7 @@ namespace mbit_电机类 {
     //% blockId=mbit_Fan block="Fan|pin %pin|speed %value"
     //% weight=100
     //% blockGap=10
-    //% color="#00FFFF"
+    //% color="#0000CD"
     //% value.min=0 value.max=1023
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=9
     export function Fan(pin: AnalogPin, value: number): void {
@@ -353,7 +353,7 @@ namespace mbit_小车类 {
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
     //% blockGap=10
-    //% color="#7FFFAA"
+    //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrl(index: CarState): void {
         switch (index) {
@@ -369,7 +369,7 @@ namespace mbit_小车类 {
     //% blockId=mbit_Music_Car block="Music_Car|%index"
     //% weight=100
     //% blockGap=10
-    //% color="#7FFFAA"
+    //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=11
     export function Music_Car(index: enMusic): void {
         switch (index) {
@@ -386,7 +386,7 @@ namespace mbit_小车类 {
     //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|direct %direct|value %value"
     //% weight=100
     //% blockGap=10
-    //% color="#7FFFAA"
+    //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
     export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
 
