@@ -80,7 +80,7 @@ namespace mbit_显示类 {
    
 }
 
-//% color="#228B22" weight=10 icon="\uf1b6"
+//% color="#87CEEB" weight=10 icon="\uf1b6"
 namespace mbit_传感器类 {
 
     export enum enVoice {
@@ -93,7 +93,7 @@ namespace mbit_传感器类 {
     //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
-    //% color="#228B22"
+    //% color="#87CEEB"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=7
     export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
@@ -107,7 +107,7 @@ namespace mbit_传感器类 {
 
     }
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
-    //% color="#228B22"
+    //% color="#87CEEB"
     //% weight=100
     //% blockGap=10
     export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
