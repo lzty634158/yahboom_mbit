@@ -33,6 +33,12 @@ namespace mbit {
         //% blockId="Beep" block="响"
         Beep
     }
+    export enum enMusic {
+
+        dadadum = 0,
+        birthday
+    }
+
     export enum enVoice {
         //% blockId="Voice" block="有声音"
         Voice = 0,
@@ -302,4 +308,21 @@ namespace mbit {
         }
     }
 
+    "mbit.Music_Car|block": "小车音乐播放|%index" 
+
+    //% blockId=mbit_Music_Car block="Music_Car|%index"
+    //% weight=100
+    //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Music_Car(index: enMusic): void {
+        switch (index) {
+            case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;
+            case enMusic.birthday: music.beginMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once); break;
+            /*case enMusic.Car_Left: Car_left(); break;
+            case enMusic.Car_Right: Car_right(); break;
+            case enMusic.Car_Stop: Car_stop(); break;
+            case enMusic.Car_SpinLeft: Car_spinleft(); break;
+            case enMusic.Car_SpinRight: Car_spinright(); break;*/
+        }
+    }
 }

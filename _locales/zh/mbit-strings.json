@@ -9,6 +9,6 @@
   "mbit.Fan|block": "风扇|引脚 %pin|速度 %value",
   "mbit.TouchPad|block": "触摸开关|引脚 %pin|返回 %value",
   "mbit.Ultrasonic|block": "超声波|发射管脚 %Trig|接收管脚 %Echo",
-  "mbit.CarCtrl|block": "小车控制|%index"
-   
+  "mbit.CarCtrl|block": "小车控制|%index",
+  "mbit.Music_Car|block": "小车音乐播放|%index" 
 }
