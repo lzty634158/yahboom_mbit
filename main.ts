@@ -245,27 +245,45 @@ namespace mbit {
     }
 
     function Car_back() {
-
+        pins.digitalWritePin(DigitalPin.P0, 0);
+        pins.digitalWritePin(DigitalPin.P8, 1);
+        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.digitalWritePin(DigitalPin.P16, 1);
     }
 
     function Car_left() {
-
+        pins.digitalWritePin(DigitalPin.P0, 0);
+        pins.digitalWritePin(DigitalPin.P8, 0);
+        pins.digitalWritePin(DigitalPin.P1, 1);
+        pins.digitalWritePin(DigitalPin.P16, 0);
     }
 
     function Car_right() {
-
+        pins.digitalWritePin(DigitalPin.P0, 1);
+        pins.digitalWritePin(DigitalPin.P8, 0);
+        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
     }
 
     function Car_stop() {
-
+        pins.digitalWritePin(DigitalPin.P0, 0);
+        pins.digitalWritePin(DigitalPin.P8, 0);
+        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.digitalWritePin(DigitalPin.P16, 0);
     }
 
     function Car_spinleft() {
-
+        pins.digitalWritePin(DigitalPin.P0, 0);
+        pins.digitalWritePin(DigitalPin.P8, 1);
+        pins.digitalWritePin(DigitalPin.P1, 1);
+        pins.digitalWritePin(DigitalPin.P16, 0);
     }
 
     function Car_spinright() {
-
+        pins.digitalWritePin(DigitalPin.P0, 1);
+        pins.digitalWritePin(DigitalPin.P8, 0);
+        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.digitalWritePin(DigitalPin.P16, 1);
     }
 
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
@@ -275,12 +293,12 @@ namespace mbit {
     export function CarCtrl(index: CarState): void {
         switch (index) {
             case CarState.Car_Run: Car_run(); break;
-            case CarState.Car_Back: break;
-            case CarState.Car_Left: break;
-            case CarState.Car_Right: break;
-            case CarState.Car_Stop: break;
-            case CarState.Car_SpinLeft: break;
-            case CarState.Car_SpinRight: break;
+            case CarState.Car_Back: Car_back(); break;
+            case CarState.Car_Left: Car_left(); break;
+            case CarState.Car_Right: Car_right(); break;
+            case CarState.Car_Stop: Car_stop(); break;
+            case CarState.Car_SpinLeft: Car_spinleft(); break;
+            case CarState.Car_SpinRight: Car_spinright(); break;
         }
     }
 
