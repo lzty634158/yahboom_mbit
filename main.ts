@@ -349,9 +349,9 @@ namespace mbit {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
 
-        pins.setPull(pin1, PinPullMode.PullUp);
-        pins.setPull(pin2, PinPullMode.PullUp);
-        pins.setPull(pin3, PinPullMode.PullUp);
+        //pins.setPull(pin1, PinPullMode.PullUp);
+        //pins.setPull(pin2, PinPullMode.PullUp);
+        //pins.setPull(pin3, PinPullMode.PullUp);
         let temp: boolean = false; 
         switch (direct) {
             case enPos.LeftState:{
