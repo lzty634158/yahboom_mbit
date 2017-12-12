@@ -360,21 +360,21 @@ namespace mbit {
                         return true;
                     else
                         return false;
-                } break;
+                }
             case enPos.MiddleState:
                 {
                     if (pins.digitalReadPin(pin2) == value)
                         return true;
                     else
                         return false;
-                } break;
+                }
             case enPos.RightState:
                 {
                     if (pins.digitalReadPin(pin3) == value)
                         return true;
                     else
                         return false;
-                } break;
+                }
         }
        
     }
