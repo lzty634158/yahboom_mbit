@@ -91,40 +91,10 @@ namespace mbit {
         Black = 1
         
     }
-
-    //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
-    //% color="#00F418"
-    //% weight=100
-    //% blockGap=10
-    export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
-
-        // send pulse
-        pins.setPull(pin1, PinPullMode.PullNone);
-        pins.digitalWritePin(pin1, 0);
-        control.waitMicros(2);
-        pins.digitalWritePin(pin1, 1);
-        control.waitMicros(10);
-        pins.digitalWritePin(pin1, 0);
-
-        // read pulse
-        let d = pins.pulseIn(pin2, PulseValue.High, 23200);
-        return d / 58;
-    }
-    
-    //% blockId=mbit_Buzzer block="Buzzer|pin %pin|value %value"
-    //% weight=100
-    //% blockGap=10
-    //% value.min=0 value.max=1
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Buzzer(pin: DigitalPin, value: enBuzzer): void {
-        
-        pins.setPull(pin, PinPullMode.PullNone);
-        pins.digitalWritePin(pin, value);
-			
-    }
     //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
+    //% color="#F08080"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function LED1(pin: DigitalPin, value: enLED1): void {
 
@@ -135,6 +105,7 @@ namespace mbit {
     //% blockId=mbit_LED2 block="LED2|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
+    //% color="#F08080"
     //% value.min=0 value.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function LED2(pin: AnalogPin, value: number): void {
@@ -146,6 +117,7 @@ namespace mbit {
     //% blockId=mbit_BreathLED block="BreathLED|pin %pin"
     //% weight=100
     //% blockGap=10
+    //% color="#F08080"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function BreathLED(pin: AnalogPin): void {
 
@@ -166,6 +138,7 @@ namespace mbit {
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
     //% weight=100
     //% blockGap=10
+    //% color="#F08080"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function RGB(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value1: number, value2: number, value3: number): void {
@@ -175,12 +148,12 @@ namespace mbit {
         pins.analogWritePin(pin3, value3 * 1024 / 256);
 
     }
-
-    //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
+    //% blockId=mbit_TouchPad block="TouchPad|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
+    //% color="#808080"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
+    export function TouchPad(pin: DigitalPin, value: enTouch): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(pin) == value) {
@@ -191,10 +164,10 @@ namespace mbit {
         }
 
     }
-
     //% blockId=mbit_Rocker block="Rocker|VRX %pin1|VRY %pin2|SW %pin3|value %value"
     //% weight=100
     //% blockGap=10
+    //% color="#808080"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
 
@@ -206,13 +179,13 @@ namespace mbit {
 
         if (x < 100) // 上
         {
-            
+
             now_state = enRocker.Up;
 
         }
         else if (x > 700) //
         {
-          
+
             now_state = enRocker.Down;
         }
         else  // 左右
@@ -235,22 +208,12 @@ namespace mbit {
 
     }
 
-    //% blockId=mbit_Fan block="Fan|pin %pin|speed %value"
+    //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
-    //% value.min=0 value.max=1023
+    //% color="#808080"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Fan(pin: AnalogPin, value: number): void {
-
-        pins.analogWritePin(pin, value);
-
-    }
-
-    //% blockId=mbit_TouchPad block="TouchPad|pin %pin|value %value"
-    //% weight=100
-    //% blockGap=10
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function TouchPad(pin: DigitalPin, value: enTouch): boolean {
+    export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(pin) == value) {
@@ -261,6 +224,54 @@ namespace mbit {
         }
 
     }
+
+    //% blockId=mbit_Buzzer block="Buzzer|pin %pin|value %value"
+    //% weight=100
+    //% blockGap=10 
+    //% color="#7FFFAA"
+    //% value.min=0 value.max=1
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Buzzer(pin: DigitalPin, value: enBuzzer): void {
+
+        pins.setPull(pin, PinPullMode.PullNone);
+        pins.digitalWritePin(pin, value);
+
+    }
+
+    //% blockId=mbit_Fan block="Fan|pin %pin|speed %value"
+    //% weight=100
+    //% blockGap=10
+    //% color="#00FFFF"
+    //% value.min=0 value.max=1023
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Fan(pin: AnalogPin, value: number): void {
+
+        pins.analogWritePin(pin, value);
+
+    }
+
+    //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
+    //% color="#00F418"
+    //% weight=100
+    //% blockGap=10
+    export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
+
+        // send pulse
+        pins.setPull(pin1, PinPullMode.PullNone);
+        pins.digitalWritePin(pin1, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(pin1, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(pin1, 0);
+
+        // read pulse
+        let d = pins.pulseIn(pin2, PulseValue.High, 23200);
+        return d / 58;
+    }
+    
+    
+
+    
 
     function Car_run() {
         pins.digitalWritePin(DigitalPin.P0, 1);
@@ -314,6 +325,7 @@ namespace mbit {
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=100
     //% blockGap=10
+    //% color="#7FFFAA"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function CarCtrl(index: CarState): void {
         switch (index) {
@@ -330,6 +342,7 @@ namespace mbit {
     //% blockId=mbit_Music_Car block="Music_Car|%index"
     //% weight=100
     //% blockGap=10
+    //% color="#7FFFAA"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Music_Car(index: enMusic): void {
         switch (index) {
@@ -346,6 +359,7 @@ namespace mbit {
     //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|direct %direct|value %value"
     //% weight=100
     //% blockGap=10
+    //% color="#7FFFAA"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
 
