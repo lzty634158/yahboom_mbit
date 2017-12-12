@@ -343,5 +343,39 @@ namespace mbit {
         }
     }
     
-    
+    //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|direct %position|value %value"
+    //% weight=100
+    //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
+
+        pins.setPull(pin1, PinPullMode.PullUp);
+        pins.setPull(pin2, PinPullMode.PullUp);
+        pins.setPull(pin3, PinPullMode.PullUp);
+
+        switch (direct) {
+            case enPos.LeftState:
+                {
+                    if (pins.digitalReadPin(pin1) == value)
+                        return true;
+                    else
+                        return false;
+                } break;
+            case enPos.MiddleState:
+                {
+                    if (pins.digitalReadPin(pin2) == value)
+                        return true;
+                    else
+                        return false;
+                } break;
+            case enPos.RightState:
+                {
+                    if (pins.digitalReadPin(pin3) == value)
+                        return true;
+                    else
+                        return false;
+                } break;
+        }
+       
+    }
 }
