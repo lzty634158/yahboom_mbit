@@ -81,7 +81,7 @@ namespace mbit {
         //% blockId="MiddleState" block="中间状态"
         MiddleState = 1,
         //% blockId="RightState" block="右边状态"
-        RightState = 2,
+        RightState = 2
     }
 
     export enum enLineState {
@@ -343,17 +343,17 @@ namespace mbit {
         }
     }
     
-    //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|pos %pos|value %value"
+    //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|position %position|value %value"
     //% weight=100
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, pos: enPos, value: enLineState): boolean {
+    export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, position: enPos, value: enLineState): boolean {
 
         pins.setPull(pin1, PinPullMode.PullUp);
         pins.setPull(pin2, PinPullMode.PullUp);
         pins.setPull(pin3, PinPullMode.PullUp);
 
-        switch (pos) {
+        switch (position) {
             case enPos.LeftState:
                 {
                     if (pins.digitalReadPin(pin1) == value)
