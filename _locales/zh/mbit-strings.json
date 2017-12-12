@@ -13,7 +13,7 @@
   "mbit.Fan|block": "风扇|引脚 %pin|速度 %value",
   "mbit.Ultrasonic|block": "超声波|发射管脚 %Trig|接收管脚 %Echo",
 
-  "mbit.CarCtrl|block": "小车控制|%index",
+  "mbit_car.CarCtrl|block": "小车控制|%index",
   "mbit.Music_Car|block": "小车音乐播放|%index",
   "mbit.Line_Sensor|block": "巡线传感器|引脚左 %pin1|引脚中 %pin2|引脚右 %pin3|位置 %direct|检测到 %value"
   
