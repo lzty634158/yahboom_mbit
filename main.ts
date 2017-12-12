@@ -308,8 +308,6 @@ namespace mbit {
         }
     }
 
-    "mbit.Music_Car|block": "小车音乐播放|%index" 
-
     //% blockId=mbit_Music_Car block="Music_Car|%index"
     //% weight=100
     //% blockGap=10
