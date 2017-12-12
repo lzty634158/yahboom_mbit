@@ -72,7 +72,26 @@ namespace mbit {
         //% blockId="Press" block="按下"
         Press
     }
+
     
+    export enum enPos {
+
+        //% blockId="LeftState" block="左边状态"
+        LeftState = 0,
+        //% blockId="MiddleState" block="中间状态"
+        MiddleState = 1,
+        //% blockId="RightState" block="右边状态"
+        RightState = 2,
+    }
+
+    export enum enLineState {
+
+        //% blockId="Black" block="黑线"
+        Black = 0,
+        //% blockId="White" block="白线"
+        White = 1
+    }
+
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
     //% color="#00F418"
     //% weight=100
@@ -322,5 +341,14 @@ namespace mbit {
             case enMusic.Car_SpinLeft: Car_spinleft(); break;
             case enMusic.Car_SpinRight: Car_spinright(); break;*/
         }
+    }
+    
+    //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|pos %pos|value1 %value1"
+    //% weight=100
+    //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, pos: enPos, value1: enLineState): void {
+
+
     }
 }
