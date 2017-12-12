@@ -252,16 +252,16 @@ namespace mbit {
     }
 
     function Car_left() {
-        pins.digitalWritePin(DigitalPin.P0, 0);
+        pins.digitalWritePin(DigitalPin.P0, 1);
         pins.digitalWritePin(DigitalPin.P8, 0);
-        pins.digitalWritePin(DigitalPin.P1, 1);
+        pins.digitalWritePin(DigitalPin.P1, 0);
         pins.digitalWritePin(DigitalPin.P16, 0);
     }
 
     function Car_right() {
-        pins.digitalWritePin(DigitalPin.P0, 1);
+        pins.digitalWritePin(DigitalPin.P0, 0);
         pins.digitalWritePin(DigitalPin.P8, 0);
-        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.digitalWritePin(DigitalPin.P1, 1);
         pins.digitalWritePin(DigitalPin.P16, 0);
     }
 
@@ -273,17 +273,17 @@ namespace mbit {
     }
 
     function Car_spinleft() {
-        pins.digitalWritePin(DigitalPin.P0, 0);
-        pins.digitalWritePin(DigitalPin.P8, 1);
-        pins.digitalWritePin(DigitalPin.P1, 1);
-        pins.digitalWritePin(DigitalPin.P16, 0);
-    }
-
-    function Car_spinright() {
         pins.digitalWritePin(DigitalPin.P0, 1);
         pins.digitalWritePin(DigitalPin.P8, 0);
         pins.digitalWritePin(DigitalPin.P1, 0);
         pins.digitalWritePin(DigitalPin.P16, 1);
+    }
+
+    function Car_spinright() {
+        pins.digitalWritePin(DigitalPin.P0, 0);
+        pins.digitalWritePin(DigitalPin.P8, 1);
+        pins.digitalWritePin(DigitalPin.P1, 1);
+        pins.digitalWritePin(DigitalPin.P16, 0);
     }
 
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
