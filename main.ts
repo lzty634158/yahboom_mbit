@@ -353,27 +353,7 @@ namespace mbit {
         pins.setPull(pin2, PinPullMode.PullUp);
         pins.setPull(pin3, PinPullMode.PullUp);
 
-        switch (direct) {
-            case enPos.LeftState:{
-                if (pins.digitalReadPin(pin1) == value)
-                    return true;
-                else
-                    return false;
-                break;
-            }
-            case enPos.MiddleState:{
-                if (pins.digitalReadPin(pin2) == value)
-                    return true;
-                else
-                    return false;
-            }
-            case enPos.RightState:{
-                if (pins.digitalReadPin(pin3) == value)
-                    return true;
-                else
-                    return false;
-            }
-        }
+        
        
     }
 }
