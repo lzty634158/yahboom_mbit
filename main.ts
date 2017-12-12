@@ -327,27 +327,27 @@ namespace mbit {
         }
     }
 
-    //% blockId=mbit_Music_Car block="Music_Car|%index"
+    //% blockId=mbit_MusicCar block="MusicCar|%index"
     //% weight=100
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Music_Car(index: enMusic): void {
-        switch (index) {
+    export function MusicCar(index: enMusic): void {
+        /*switch (index) {
             case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;
             case enMusic.birthday: music.beginMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once); break;
-            /*case enMusic.Car_Left: Car_left(); break;
+            case enMusic.Car_Left: Car_left(); break;
             case enMusic.Car_Right: Car_right(); break;
             case enMusic.Car_Stop: Car_stop(); break;
             case enMusic.Car_SpinLeft: Car_spinleft(); break;
-            case enMusic.Car_SpinRight: Car_spinright(); break;*/
-        }
+            case enMusic.Car_SpinRight: Car_spinright(); break;
+        }*/
     }
     
-    //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|direct %direct|value %value"
+    //% blockId=mbit_LineSensor block="LineSensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|direct %direct|value %value"
     //% weight=100
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
+    export function LineSensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
 
         pins.setPull(pin1, PinPullMode.PullUp);
         pins.setPull(pin2, PinPullMode.PullUp);
