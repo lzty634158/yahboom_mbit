@@ -94,9 +94,9 @@ namespace mbit {
 
     //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
     //% weight=100
-    //% blockGap=50
+    //% blockGap=10
     //% color="#F08080"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
     export function LED1(pin: DigitalPin, value: enLED1): void {
 
         pins.digitalWritePin(pin, value);
@@ -108,7 +108,7 @@ namespace mbit {
     //% blockGap=10
     //% color="#F08080"
     //% value.min=0 value.max=255
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=2
     export function LED2(pin: AnalogPin, value: number): void {
 
         pins.analogWritePin(pin, value * 1024 / 256);
@@ -119,7 +119,7 @@ namespace mbit {
     //% weight=100
     //% blockGap=10
     //% color="#F08080"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=3
     export function BreathLED(pin: AnalogPin): void {
 
         for (let i: number = 0; i < 1023; i++) {
@@ -153,7 +153,7 @@ namespace mbit {
     //% weight=100
     //% blockGap=10
     //% color="#808080"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=5
     export function TouchPad(pin: DigitalPin, value: enTouch): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
@@ -169,7 +169,7 @@ namespace mbit {
     //% weight=100
     //% blockGap=10
     //% color="#808080"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=6
     export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
 
         pins.setPull(pin3, PinPullMode.PullUp);
@@ -213,7 +213,7 @@ namespace mbit {
     //% weight=100
     //% blockGap=10
     //% color="#808080"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=7
     export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
@@ -231,7 +231,7 @@ namespace mbit {
     //% blockGap=10 
     //% color="#7FFFAA"
     //% value.min=0 value.max=1
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=8
     export function Buzzer(pin: DigitalPin, value: enBuzzer): void {
 
         pins.setPull(pin, PinPullMode.PullNone);
@@ -244,7 +244,7 @@ namespace mbit {
     //% blockGap=10
     //% color="#00FFFF"
     //% value.min=0 value.max=1023
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=9
     export function Fan(pin: AnalogPin, value: number): void {
 
         pins.analogWritePin(pin, value);
@@ -327,7 +327,7 @@ namespace mbit {
     //% weight=100
     //% blockGap=10
     //% color="#7FFFAA"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrl(index: CarState): void {
         switch (index) {
             case CarState.Car_Run: Car_run(); break;
@@ -344,7 +344,7 @@ namespace mbit {
     //% weight=100
     //% blockGap=10
     //% color="#7FFFAA"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=11
     export function Music_Car(index: enMusic): void {
         switch (index) {
             case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;
@@ -361,7 +361,7 @@ namespace mbit {
     //% weight=100
     //% blockGap=10
     //% color="#7FFFAA"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
     export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
 
         //pins.setPull(pin1, PinPullMode.PullUp);
