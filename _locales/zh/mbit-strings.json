@@ -11,6 +11,6 @@
   "mbit.TouchPad|block": "触摸开关|引脚 %pin|返回 %value",
   "mbit.Ultrasonic|block": "超声波|发射管脚 %Trig|接收管脚 %Echo",
   "mbit.Voice_Sensor|block": "声音传感器|引脚 %pin|返回 %value",
-  "mbit.Line_Sensor|block": "巡线传感器|引脚左 %pin|引脚中 %pin|引脚右 %pin|位置 %pos|检测到 %value"
+  "mbit.Line_Sensor|block": "巡线传感器|引脚左 %pin1|引脚中 %pin2|引脚右 %pin3|位置 %pos|检测到 %value"
 
 }
