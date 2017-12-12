@@ -5,7 +5,6 @@
   "mbit.Fan|block": "风扇|引脚 %pin|速度 %value",
   "mbit.LED1|block": "LED灯|引脚 %pin|状态 %value",
   "mbit.LED2|block": "LED灯|引脚 %pin|亮度 %value",
-  "mbit.Line_Sensor|block": "巡线传感器|引脚左 %pin1|引脚中 %pin2|引脚右 %pin3|位置 %position|检测到 %value",
   "mbit.Music_Car|block": "小车音乐播放|%index",
   "mbit.RGB|block": "RGB七彩灯|引脚R %pin1|引脚G %pin2|引脚B %pin3|红色 %value1|绿色 %value2|蓝色 %value3",
   "mbit.Rocker|block": "遥杆|VRX %pin1|VRY %pin2|SW %pin3|返回 %value",
