@@ -94,9 +94,9 @@ namespace mbit {
 
     //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
     //% weight=100
-    //% blockGap=5
+    //% blockGap=50
     //% color="#F08080"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=6
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function LED1(pin: DigitalPin, value: enLED1): void {
 
         pins.digitalWritePin(pin, value);
