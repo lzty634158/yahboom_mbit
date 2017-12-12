@@ -214,7 +214,7 @@ namespace mbit_输入类 {
 }
 
 
-//% color="#7FFFAA" weight=10 icon="\uf001"
+//% color="#D2691E" weight=10 icon="\uf001"
 namespace mbit_音乐类 {
     export enum enBuzzer {
 
@@ -239,7 +239,7 @@ namespace mbit_音乐类 {
 
 }
 
-//% color="#00FFFF" weight=10 icon="\uf185"
+//% color="#0000CD" weight=10 icon="\uf185"
 namespace mbit_电机类 {
 
     //% blockId=mbit_Fan block="Fan|pin %pin|speed %value"
@@ -256,7 +256,7 @@ namespace mbit_电机类 {
 
 }
 
-//% color="#7FFFAA" weight=10 icon="\uf1b9"
+//% color="#006400" weight=10 icon="\uf1b9"
 namespace mbit_小车类 {
 
     export enum enMusic {
