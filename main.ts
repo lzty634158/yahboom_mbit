@@ -85,11 +85,11 @@ namespace mbit {
     }
 
     export enum enLineState {
-
-        //% blockId="Black" block="黑线"
-        Black = 0,
         //% blockId="White" block="白线"
-        White = 1
+        White = 0,
+        //% blockId="Black" block="黑线"
+        Black = 1
+        
     }
 
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
