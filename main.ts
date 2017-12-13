@@ -157,6 +157,12 @@ namespace mbit_输入类 {
         //% blockId="Touch" block="触摸"
         Touch = 1
     }
+    export enum enButton {
+        //% blockId="Press" block="按下"
+        Press = 0,
+        //% blockId="Realse" block="松开"
+        Realse = 1
+    }
 
     //% blockId=mbit_TouchPad block="TouchPad|pin %pin|value %value"
     //% weight=100
@@ -217,7 +223,23 @@ namespace mbit_输入类 {
             return false;
 
     }
-        
+
+    //% blockId=mbit_Button block="Button|pin %pin|value %value"
+    //% weight=100
+    //% blockGap=10
+    //% color="#808080"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=5
+    export function Button(pin: DigitalPin, value: enButton): boolean {
+
+        pins.setPull(pin, PinPullMode.PullUp);
+        if (pins.digitalReadPin(pin) == value) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }  
 }
 
 /*****************************************************************************************************************************************
