@@ -17,7 +17,27 @@ namespace mbit_显示类 {
         //% blockId="ON" block="亮"
         ON =1
     }
-    
+
+    export enum enColor {
+
+        //% blockId="OFF" block="灭"
+        OFF = 0,
+        //% blockId="Red" block="红色"
+        Red,
+        //% blockId="Green" block="绿色"
+        Green,
+        //% blockId="Blue" block="蓝色"
+        Blue,
+        //% blockId="White" block="白色"
+        White,
+        //% blockId="Cyan" block="青色"
+        Cyan,
+        //% blockId="Pinkish" block="品红"
+        Pinkish,
+        //% blockId="Green" block="黄色"
+        Yellow,
+
+    }
 
     //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
     //% weight=100
@@ -76,7 +96,65 @@ namespace mbit_显示类 {
         pins.analogWritePin(pin3, value3 * 1024 / 256);
 
     }
+    //% blockId=mbit_RGB2 block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value %value"
+    //% weight=100
+    //% blockGap=10
+    //% color="#C814B8"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function RGB2(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, value: enColor): void {
 
+        switch (value) {
+            case enColor.OFF: {
+                pins.digitalWritePin(pin1, 0);
+                pins.digitalWritePin(pin2, 0);
+                pins.digitalWritePin(pin3, 0);
+                break;
+            }
+            case enColor.Red: {
+                pins.digitalWritePin(pin1, 1);
+                pins.digitalWritePin(pin2, 0);
+                pins.digitalWritePin(pin3, 0);
+                break;
+            }
+            case enColor.Green: {
+                pins.digitalWritePin(pin1, 0);
+                pins.digitalWritePin(pin2, 1);
+                pins.digitalWritePin(pin3, 0);
+                break;
+            }
+            case enColor.Blue: {
+                pins.digitalWritePin(pin1, 0);
+                pins.digitalWritePin(pin2, 0);
+                pins.digitalWritePin(pin3, 1);
+                break;
+            }
+            case enColor.White: {
+                pins.digitalWritePin(pin1, 1);
+                pins.digitalWritePin(pin2, 1);
+                pins.digitalWritePin(pin3, 1);
+                break;
+            }
+            case enColor.Cyan: {
+                pins.digitalWritePin(pin1, 0);
+                pins.digitalWritePin(pin2, 1);
+                pins.digitalWritePin(pin3, 1);
+                break;
+            }
+            case enColor.Pinkish: {
+                pins.digitalWritePin(pin1, 1);
+                pins.digitalWritePin(pin2, 0);
+                pins.digitalWritePin(pin3, 1);
+                break;
+            }
+            case enColor.Yellow: {
+                pins.digitalWritePin(pin1, 1);
+                pins.digitalWritePin(pin2, 1);
+                pins.digitalWritePin(pin3, 0);
+                break;
+            }
+        }
+
+    }
    
 }
 /*****************************************************************************************************************************************

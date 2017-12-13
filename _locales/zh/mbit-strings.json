@@ -4,7 +4,8 @@
   "mbit_显示类.LED2|block": "LED灯|引脚 %pin|亮度 %value",
   "mbit_显示类.BreathLED|block": "呼吸灯|引脚 %pin",
   "mbit_显示类.RGB|block": "RGB七彩灯|引脚R %pin1|引脚G %pin2|引脚B %pin3|红色 %value1|绿色 %value2|蓝色 %value3",
-  
+  "mbit_显示类.RGB2|block": "RGB七彩灯|引脚R %pin1|引脚G %pin2|引脚B %pin3|显示 %value",
+
   "mbit_输入类.TouchPad|block": "触摸开关|引脚 %pin|返回 %value",
   "mbit_输入类.Rocker|block": "遥杆|VRX %pin1|VRY %pin2|SW %pin3|返回 %value",
   "mbit_输入类.Button|block": "按键|引脚 %pin|返回 %value",
