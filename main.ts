@@ -93,12 +93,38 @@ namespace mbit_传感器类 {
         NoVoice = 1
     }
 
+    export enum enIR {
+        //% blockId="Get" block="检测到"
+        Get = 0,
+        //% blockId="NoVoice" block="未检测"
+        NoGet = 1
+    }
+    
+
     //% blockId=mbit_Voice_Sensor block="Voice_Sensor|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=7
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
+
+        pins.setPull(pin, PinPullMode.PullUp);
+        if (pins.digitalReadPin(pin) == value) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+    "mbit_传感器类.IR_Sensor|block": "红外传感器|引脚 %pin|返回 %value",
+
+    //% blockId=mbit_IR_Sensor block="IR_Sensor|pin %pin|value %value"
+    //% weight=100
+    //% blockGap=10
+    //% color="#87CEEB"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function IR_Sensor(pin: DigitalPin, value: enIR): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(pin) == value) {
@@ -113,6 +139,7 @@ namespace mbit_传感器类 {
     //% color="#87CEEB"
     //% weight=100
     //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
 
         // send pulse
