@@ -10,7 +10,7 @@
   "mbit_输入类.Button|block": "按键|引脚 %pin|返回 %value",
 
   "mbit_传感器类.Voice_Sensor|block": "声音传感器|引脚 %pin|返回 %value",
-  "mbit_传感器类.IR_Sensor|block": "红外传感器|引脚 %pin| |%value|障碍物",
+  "mbit_传感器类.IR_Sensor|block": "红外传感器|引脚 %pin|  |%value|障碍物",
   "mbit_传感器类.Ultrasonic|block": "超声波|发射管脚 %Trig|接收管脚 %Echo",
 
   "mbit_音乐类.Buzzer|block": "有源蜂鸣器|引脚 %pin|值 %value",

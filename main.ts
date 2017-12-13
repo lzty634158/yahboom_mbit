@@ -118,7 +118,7 @@ namespace mbit_传感器类 {
 
     }
 
-    //% blockId=mbit_IR_Sensor block="IR_Sensor|pin %pin|kk|%value|障碍物"
+    //% blockId=mbit_IR_Sensor block="IR_Sensor|pin %pin| |%value|障碍物"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
