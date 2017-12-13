@@ -117,9 +117,8 @@ namespace mbit_传感器类 {
         }
 
     }
-    "mbit_传感器类.IR_Sensor|block": "红外传感器|引脚 %pin|返回 %value",
 
-    //% blockId=mbit_IR_Sensor block="IR_Sensor|pin %pin|value %value"
+    //% blockId=mbit_IR_Sensor block="IR_Sensor|pin %pin| %value|障碍物"
     //% weight=100
     //% blockGap=10
     //% color="#87CEEB"
