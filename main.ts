@@ -186,6 +186,15 @@ namespace mbit_传感器类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Voice_Sensor(pin: DigitalPin, value: enVoice): boolean {
 
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+
         pins.setPull(pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(pin) == value) {
             return true;
