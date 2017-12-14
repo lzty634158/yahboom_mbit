@@ -194,6 +194,31 @@ namespace mbit_传感器类 {
         control.waitMicros(13);
         pins.digitalWritePin(DigitalPin.P9, 0);
         control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+
 
         pins.setPull(pin, PinPullMode.PullUp);
         if (pins.digitalReadPin(pin) == value) {
