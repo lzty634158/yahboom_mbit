@@ -196,6 +196,14 @@ namespace mbit_传感器类 {
 
     }
 
+    function IR_send_38k() {
+        for (var i = 0; i < 8; i++) {
+            pins.digitalWritePin(DigitalPin.P9, 1);
+            control.waitMicros(13);
+            pins.digitalWritePin(DigitalPin.P9, 0);
+            control.waitMicros(13);
+        }
+    }
     //% blockId=mbit_IR_Sensor block="IR_Sensor|pin %pin| |%value|障碍物"
     //% weight=100
     //% blockGap=10
@@ -204,18 +212,7 @@ namespace mbit_传感器类 {
     export function IR_Sensor(pin: DigitalPin, value: enIR): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
+        IR_send_38k();
         if (pins.digitalReadPin(pin) == value) {
             return true;
         }
@@ -232,10 +229,7 @@ namespace mbit_传感器类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function IR_Send(pin: DigitalPin): void {
 
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
+        
         pins.digitalWritePin(DigitalPin.P9, 1);
         control.waitMicros(13);
         pins.digitalWritePin(DigitalPin.P9, 0);
