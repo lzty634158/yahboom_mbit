@@ -204,7 +204,18 @@ namespace mbit_传感器类 {
     export function IR_Sensor(pin: DigitalPin, value: enIR): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
-
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
         if (pins.digitalReadPin(pin) == value) {
             return true;
         }
