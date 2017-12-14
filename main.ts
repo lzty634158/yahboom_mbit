@@ -588,13 +588,13 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrlSpeed(index: CarState, speed: number): void {
         switch (index) {
-            case CarState.Car_Run: Car_run(1023); break;
-            case CarState.Car_Back: Car_back(1023); break;
-            case CarState.Car_Left: Car_left(1023); break;
-            case CarState.Car_Right: Car_right(1023); break;
+            case CarState.Car_Run: Car_run(speed); break;
+            case CarState.Car_Back: Car_back(speed); break;
+            case CarState.Car_Left: Car_left(speed); break;
+            case CarState.Car_Right: Car_right(speed); break;
             case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(1023); break;
-            case CarState.Car_SpinRight: Car_spinright(1023); break;
+            case CarState.Car_SpinLeft: Car_spinleft(speed); break;
+            case CarState.Car_SpinRight: Car_spinright(speed); break;
         }
     }
     //% blockId=mbit_Music_Car block="Music_Car|%index"
