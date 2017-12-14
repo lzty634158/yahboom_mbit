@@ -502,32 +502,40 @@ namespace mbit_小车类 {
 
 
 
-    function Car_run() {
-        pins.digitalWritePin(DigitalPin.P0, 1);
-        pins.digitalWritePin(DigitalPin.P8, 0);
+    function Car_run(speed: number) {
+       
         pins.digitalWritePin(DigitalPin.P16, 1);
-        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.analogWritePin(AnalogPin.P1, 1023 - speed); //速度控制
+
+        pins.analogWritePin(AnalogPin.P0, speed);//速度控制
+        pins.digitalWritePin(DigitalPin.P8, 0);
     }
 
-    function Car_back() {
-        pins.digitalWritePin(DigitalPin.P0, 0);
+    function Car_back(speed: number) {
+
+        pins.digitalWritePin(DigitalPin.P16, 0);
+        pins.analogWritePin(AnalogPin.P1, speed); //速度控制
+
+        pins.analogWritePin(AnalogPin.P0, 1023 - speed);//速度控制
         pins.digitalWritePin(DigitalPin.P8, 1);
-        pins.digitalWritePin(DigitalPin.P16, 0);
-        pins.digitalWritePin(DigitalPin.P1, 1);
     }
 
-    function Car_left() {
-        pins.digitalWritePin(DigitalPin.P0, 1);
+    function Car_left(speed: number) {
+
+        pins.analogWritePin(AnalogPin.P0, speed);
         pins.digitalWritePin(DigitalPin.P8, 0);
+
         pins.digitalWritePin(DigitalPin.P16, 0);
         pins.digitalWritePin(DigitalPin.P1, 0);
     }
 
-    function Car_right() {
+    function Car_right(speed: number) {
+
         pins.digitalWritePin(DigitalPin.P0, 0);
         pins.digitalWritePin(DigitalPin.P8, 0);
+
         pins.digitalWritePin(DigitalPin.P16, 1);
-        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.analogWritePin(AnalogPin.P1, 1023 - speed);
     }
 
     function Car_stop() {
@@ -537,18 +545,23 @@ namespace mbit_小车类 {
         pins.digitalWritePin(DigitalPin.P1, 0);
     }
 
-    function Car_spinleft() {
-        pins.digitalWritePin(DigitalPin.P0, 1);
+    function Car_spinleft(speed: number) {
+
+        pins.analogWritePin(AnalogPin.P0, speed);
         pins.digitalWritePin(DigitalPin.P8, 0);
+
         pins.digitalWritePin(DigitalPin.P16, 0);
-        pins.digitalWritePin(DigitalPin.P1, 1);
+        pins.analogWritePin(AnalogPin.P1, speed);
     }
 
-    function Car_spinright() {
-        pins.digitalWritePin(DigitalPin.P0, 0);
+    function Car_spinright(speed: number) {
+
+        pins.analogWritePin(AnalogPin.P0, 1023-speed);
         pins.digitalWritePin(DigitalPin.P8, 1);
+
         pins.digitalWritePin(DigitalPin.P16, 1);
-        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.analogWritePin(AnalogPin.P1, 1023-speed);
+
     }
 
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
@@ -558,13 +571,30 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrl(index: CarState): void {
         switch (index) {
-            case CarState.Car_Run: Car_run(); break;
-            case CarState.Car_Back: Car_back(); break;
-            case CarState.Car_Left: Car_left(); break;
-            case CarState.Car_Right: Car_right(); break;
+            case CarState.Car_Run: Car_run(1023); break;
+            case CarState.Car_Back: Car_back(1023); break;
+            case CarState.Car_Left: Car_left(1023); break;
+            case CarState.Car_Right: Car_right(1023); break;
             case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(); break;
-            case CarState.Car_SpinRight: Car_spinright(); break;
+            case CarState.Car_SpinLeft: Car_spinleft(1023); break;
+            case CarState.Car_SpinRight: Car_spinright(1023); break;
+        }
+    }
+    //% blockId=mbit_CarCtrlSpeed block="CarCtrlSpeed|%index|speed %speed"
+    //% weight=100
+    //% blockGap=10
+    //% value.speed=0 value.speed=1023
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function CarCtrlSpeed(index: CarState, speed: number): void {
+        switch (index) {
+            case CarState.Car_Run: Car_run(1023); break;
+            case CarState.Car_Back: Car_back(1023); break;
+            case CarState.Car_Left: Car_left(1023); break;
+            case CarState.Car_Right: Car_right(1023); break;
+            case CarState.Car_Stop: Car_stop(); break;
+            case CarState.Car_SpinLeft: Car_spinleft(1023); break;
+            case CarState.Car_SpinRight: Car_spinright(1023); break;
         }
     }
     //% blockId=mbit_Music_Car block="Music_Car|%index"
