@@ -197,7 +197,7 @@ namespace mbit_传感器类 {
     }
 
     function IR_send_38k() {
-        for (let i: number = 0; i < 6; i++) {
+        for (let i: number = 0; i < 8; i++) {
             pins.digitalWritePin(DigitalPin.P9, 1);
             control.waitMicros(13);
             pins.digitalWritePin(DigitalPin.P9, 0);
@@ -212,7 +212,7 @@ namespace mbit_传感器类 {
     export function IR_Sensor(pin: DigitalPin, value: enIR): boolean {
 
         pins.setPull(pin, PinPullMode.PullUp);
-        IR_send_38k();
+        //IR_send_38k();
         if (pins.digitalReadPin(pin) == value) {
             return true;
         }
@@ -230,34 +230,7 @@ namespace mbit_传感器类 {
     export function IR_Send(pin: DigitalPin): void {
 
         
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
+        IR_send_38k();
 
     }
    
