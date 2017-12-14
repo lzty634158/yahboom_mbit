@@ -197,7 +197,7 @@ namespace mbit_传感器类 {
     }
 
     function IR_send_38k() {
-        for (let i: number = 0; i < 8; i++) {
+        for (let i: number = 0; i < 4; i++) {
             pins.digitalWritePin(DigitalPin.P9, 1);
             control.waitMicros(13);
             pins.digitalWritePin(DigitalPin.P9, 0);
