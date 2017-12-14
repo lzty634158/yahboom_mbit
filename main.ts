@@ -478,7 +478,7 @@ namespace mbit_小车类 {
     function Car_run(speed: number) {
        
         pins.digitalWritePin(DigitalPin.P16, 1);
-        pins.analogWritePin(AnalogPin.P1, 1023-speed-150); //速度控制
+        pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
 
         pins.analogWritePin(AnalogPin.P0, speed);//速度控制
         pins.digitalWritePin(DigitalPin.P8, 0);
@@ -525,7 +525,7 @@ namespace mbit_小车类 {
 
         pins.digitalWritePin(DigitalPin.P16, 0);
         pins.analogWritePin(AnalogPin.P1, speed);
-    }
+    } 
 
     function Car_spinright(speed: number) {
 
