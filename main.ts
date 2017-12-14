@@ -202,38 +202,6 @@ namespace mbit_传感器类 {
     //% color="#87CEEB"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function IR_Sensor(pin: DigitalPin, value: enIR): boolean {
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        control.waitMicros(13);
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(13);
 
         pins.setPull(pin, PinPullMode.PullUp);
 
@@ -245,6 +213,49 @@ namespace mbit_传感器类 {
         }
 
     }
+
+    //% blockId=mbit_IR_Send block="IR_Send|pin %pin"
+    //% weight=100
+    //% blockGap=10
+    //% color="#87CEEB"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function IR_Send(pin: DigitalPin): void {
+
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        control.waitMicros(13);
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        control.waitMicros(13);
+
+    }
+   
     //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
     //% color="#87CEEB"
     //% weight=100
