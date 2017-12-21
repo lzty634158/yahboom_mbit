@@ -433,7 +433,7 @@ namespace mbit_电机类 {
 //% color="#006400" weight=10 icon="\uf1b9"
 namespace mbit_小车类 {
 
-    const PCA9685_ADD = 0x41
+    const PCA9685_ADD = 0x40
     const MODE1 = 0x00
 //    const MODE2 = 0x01
 //    const SUBADR1 = 0x02
@@ -665,13 +665,13 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrl(index: CarState): void {
         switch (index) {
-            case CarState.Car_Run: Car_run(4096); break;
-            case CarState.Car_Back: Car_back(4096); break;
-            case CarState.Car_Left: Car_left(4096); break;
-            case CarState.Car_Right: Car_right(4096); break;
+            case CarState.Car_Run: Car_run(4095); break;
+            case CarState.Car_Back: Car_back(4095); break;
+            case CarState.Car_Left: Car_left(4095); break;
+            case CarState.Car_Right: Car_right(4095); break;
             case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(4096); break;
-            case CarState.Car_SpinRight: Car_spinright(4096); break;
+            case CarState.Car_SpinLeft: Car_spinleft(4095); break;
+            case CarState.Car_SpinRight: Car_spinright(4095); break;
         }
     }
     //% blockId=mbit_CarCtrlSpeed block="CarCtrlSpeed|%index|speed %speed"
