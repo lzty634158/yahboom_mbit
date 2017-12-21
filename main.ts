@@ -543,11 +543,11 @@ namespace mbit_小车类 {
         if (!initialized) {
             initPCA9685();
         }
-        setPwm(12, 0, speed);
-        setPwm(13, 0, 0);
+        setPwm(0, 0, speed);
+        setPwm(1, 0, 0);
 
-        setPwm(14, 0, speed);
-        setPwm(15, 0, 0);
+        setPwm(2, 0, speed);
+        setPwm(3, 0, 0);
         //pins.digitalWritePin(DigitalPin.P16, 1);
        // pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
 
