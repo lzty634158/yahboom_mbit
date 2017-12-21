@@ -433,6 +433,16 @@ namespace mbit_电机类 {
 //% color="#006400" weight=10 icon="\uf1b9"
 namespace mbit_小车类 {
 
+    const PCA9685_ADD = 0x41
+    const MODE1 = 0x00
+//    const MODE2 = 0x01
+//    const SUBADR1 = 0x02
+//    const SUBADR2 = 0x03
+//   const SUBADR3 = 0x04
+    const PRESCALE = 0xFE
+
+    let initialized = false
+
     export enum enMusic {
 
         dadadum = 0,
@@ -473,67 +483,178 @@ namespace mbit_小车类 {
         Car_SpinRight = 7
     }
 
+    function i2cwrite(addr: number, reg: number, value: number) {
+        let buf = pins.createBuffer(2)
+        buf[0] = reg
+        buf[1] = value
+        pins.i2cWriteBuffer(addr, buf)
+    }
+
+    function i2ccmd(addr: number, value: number) {
+        let buf = pins.createBuffer(1)
+        buf[0] = value
+        pins.i2cWriteBuffer(addr, buf)
+    }
+
+    function i2cread(addr: number, reg: number) {
+        pins.i2cWriteNumber(addr, reg, NumberFormat.UInt8BE);
+        let val = pins.i2cReadNumber(addr, NumberFormat.UInt8BE);
+        return val;
+    }
+
+    function initPCA9685(): void {
+        i2cwrite(PCA9685_ADD, MODE1, 0x00)
+        setFreq(50);
+        initialized = true
+    }
+
+    function setFreq(freq: number): void {
+        // Constrain the frequency
+        let prescaleval = 25000000;
+        prescaleval /= 4096;
+        prescaleval /= freq;
+        prescaleval -= 1;
+        let prescale = prescaleval; //Math.Floor(prescaleval + 0.5);
+        let oldmode = i2cread(PCA9685_ADD, MODE1);
+        let newmode = (oldmode & 0x7F) | 0x10; // sleep
+        i2cwrite(PCA9685_ADD, MODE1, newmode); // go to sleep
+        i2cwrite(PCA9685_ADD, PRESCALE, prescale); // set the prescaler
+        i2cwrite(PCA9685_ADD, MODE1, oldmode);
+        control.waitMicros(5000);
+        i2cwrite(PCA9685_ADD, MODE1, oldmode | 0xa1);
+    }
+
+    function setPwm(channel: number, on: number, off: number): void {
+        if (channel < 0 || channel > 15)
+            return;
+
+        let buf = pins.createBuffer(5);
+        buf[0] = channel;
+        buf[1] = on & 0xff;
+        buf[2] = (on >> 8) & 0xff;
+        buf[3] = off & 0xff;
+        buf[4] = (off >> 8) & 0xff;
+        pins.i2cWriteBuffer(PCA9685_ADD, buf);
+    }
 
 
     function Car_run(speed: number) {
-       
-        pins.digitalWritePin(DigitalPin.P16, 1);
-        pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
 
-        pins.analogWritePin(AnalogPin.P0, speed);//速度控制
-        pins.digitalWritePin(DigitalPin.P8, 0);
+        if (!initialized) {
+            initPCA9685();
+        }
+        setPwm(12, 0, speed);
+        setPwm(13, 0, 0);
+
+        setPwm(14, 0, speed);
+        setPwm(15, 0, 0);
+        //pins.digitalWritePin(DigitalPin.P16, 1);
+       // pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
+
+       // pins.analogWritePin(AnalogPin.P0, speed);//速度控制
+       // pins.digitalWritePin(DigitalPin.P8, 0);
     }
 
     function Car_back(speed: number) {
 
-        pins.digitalWritePin(DigitalPin.P16, 0);
-        pins.analogWritePin(AnalogPin.P1, speed); //速度控制
+        if (!initialized) {
+            initPCA9685();
+        }
+        setPwm(12, 0, 0);
+        setPwm(13, 0, speed);
 
-        pins.analogWritePin(AnalogPin.P0, 1023 - speed);//速度控制
-        pins.digitalWritePin(DigitalPin.P8, 1);
+        setPwm(14, 0, 0);
+        setPwm(15, 0, speed);
+
+        //pins.digitalWritePin(DigitalPin.P16, 0);
+        //pins.analogWritePin(AnalogPin.P1, speed); //速度控制
+
+        //pins.analogWritePin(AnalogPin.P0, 1023 - speed);//速度控制
+        //pins.digitalWritePin(DigitalPin.P8, 1);
     }
 
     function Car_left(speed: number) {
+        if (!initialized) {
+            initPCA9685();
+        }
+        setPwm(12, 0, 0);
+        setPwm(13, 0, 0);
 
-        pins.analogWritePin(AnalogPin.P0, speed);
-        pins.digitalWritePin(DigitalPin.P8, 0);
+        setPwm(14, 0, speed);
+        setPwm(15, 0, 0);
 
-        pins.digitalWritePin(DigitalPin.P16, 0);
-        pins.digitalWritePin(DigitalPin.P1, 0);
+        //pins.analogWritePin(AnalogPin.P0, speed);
+        //pins.digitalWritePin(DigitalPin.P8, 0);
+
+        //pins.digitalWritePin(DigitalPin.P16, 0);
+        //pins.digitalWritePin(DigitalPin.P1, 0);
     }
 
     function Car_right(speed: number) {
 
-        pins.digitalWritePin(DigitalPin.P0, 0);
-        pins.digitalWritePin(DigitalPin.P8, 0);
+        if (!initialized) {
+            initPCA9685();
+        }
+        setPwm(12, 0, speed);
+        setPwm(13, 0, 0);
 
-        pins.digitalWritePin(DigitalPin.P16, 1);
-        pins.analogWritePin(AnalogPin.P1, 1023 - speed);
+        setPwm(14, 0, 0);
+        setPwm(15, 0, 0);
+        //pins.digitalWritePin(DigitalPin.P0, 0);
+        //pins.digitalWritePin(DigitalPin.P8, 0);
+
+        //pins.digitalWritePin(DigitalPin.P16, 1);
+       // pins.analogWritePin(AnalogPin.P1, 1023 - speed);
     }
 
     function Car_stop() {
-        pins.digitalWritePin(DigitalPin.P0, 0);
-        pins.digitalWritePin(DigitalPin.P8, 0);
-        pins.digitalWritePin(DigitalPin.P16, 0);
-        pins.digitalWritePin(DigitalPin.P1, 0);
+        if (!initialized) {
+            initPCA9685();
+        }
+        setPwm(12, 0, 0);
+        setPwm(13, 0, 0);
+
+        setPwm(14, 0, 0);
+        setPwm(15, 0, 0);
+        //pins.digitalWritePin(DigitalPin.P0, 0);
+        //pins.digitalWritePin(DigitalPin.P8, 0);
+        //pins.digitalWritePin(DigitalPin.P16, 0);
+        //pins.digitalWritePin(DigitalPin.P1, 0);
     }
 
     function Car_spinleft(speed: number) {
 
-        pins.analogWritePin(AnalogPin.P0, speed);
-        pins.digitalWritePin(DigitalPin.P8, 0);
+        if (!initialized) {
+            initPCA9685();
+        }
+        setPwm(12, 0, 0);
+        setPwm(13, 0, speed);
 
-        pins.digitalWritePin(DigitalPin.P16, 0);
-        pins.analogWritePin(AnalogPin.P1, speed);
+        setPwm(14, 0, speed);
+        setPwm(15, 0, 0);
+
+        //pins.analogWritePin(AnalogPin.P0, speed);
+        //pins.digitalWritePin(DigitalPin.P8, 0);
+
+        //pins.digitalWritePin(DigitalPin.P16, 0);
+        //pins.analogWritePin(AnalogPin.P1, speed);
     } 
 
     function Car_spinright(speed: number) {
 
-        pins.analogWritePin(AnalogPin.P0, 1023-speed);
-        pins.digitalWritePin(DigitalPin.P8, 1);
+        if (!initialized) {
+            initPCA9685();
+        }
+        setPwm(12, 0, speed);
+        setPwm(13, 0, 0);
 
-        pins.digitalWritePin(DigitalPin.P16, 1);
-        pins.analogWritePin(AnalogPin.P1, 1023-speed);
+        setPwm(14, 0, 0);
+        setPwm(15, 0, speed);
+        //pins.analogWritePin(AnalogPin.P0, 1023-speed);
+        //pins.digitalWritePin(DigitalPin.P8, 1);
+
+        //pins.digitalWritePin(DigitalPin.P16, 1);
+        //pins.analogWritePin(AnalogPin.P1, 1023-speed);
 
     }
 
@@ -544,13 +665,13 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrl(index: CarState): void {
         switch (index) {
-            case CarState.Car_Run: Car_run(1023); break;
-            case CarState.Car_Back: Car_back(1023); break;
-            case CarState.Car_Left: Car_left(1023); break;
-            case CarState.Car_Right: Car_right(1023); break;
+            case CarState.Car_Run: Car_run(4096); break;
+            case CarState.Car_Back: Car_back(4096); break;
+            case CarState.Car_Left: Car_left(4096); break;
+            case CarState.Car_Right: Car_right(4096); break;
             case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(1023); break;
-            case CarState.Car_SpinRight: Car_spinright(1023); break;
+            case CarState.Car_SpinLeft: Car_spinleft(4096); break;
+            case CarState.Car_SpinRight: Car_spinright(4096); break;
         }
     }
     //% blockId=mbit_CarCtrlSpeed block="CarCtrlSpeed|%index|speed %speed"
