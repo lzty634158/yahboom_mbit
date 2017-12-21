@@ -529,7 +529,7 @@ namespace mbit_小车类 {
             return;
 
         let buf = pins.createBuffer(5);
-        buf[0] = channel;
+        buf[0] = 6 + 4 * channel;
         buf[1] = on & 0xff;
         buf[2] = (on >> 8) & 0xff;
         buf[3] = off & 0xff;
