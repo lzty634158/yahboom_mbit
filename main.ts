@@ -5,31 +5,31 @@ load dependency
 "mbit": "file:../pxt-mbit"
 */
 
-export enum enColor {
 
-    //% blockId="OFF" block="灭"
-    OFF = 0,
-    //% blockId="Red" block="红色"
-    Red,
-    //% blockId="Green" block="绿色"
-    Green,
-    //% blockId="Blue" block="蓝色"
-    Blue,
-    //% blockId="White" block="白色"
-    White,
-    //% blockId="Cyan" block="青色"
-    Cyan,
-    //% blockId="Pinkish" block="品红"
-    Pinkish,
-    //% blockId="Green" block="黄色"
-    Yellow,
-
-}
 
 //% color="#C814B8" weight=10 icon="\uf1d4"
 namespace mbit_显示类 {
     
+    export enum enColor {
 
+        //% blockId="OFF" block="灭"
+        OFF = 0,
+        //% blockId="Red" block="红色"
+        Red,
+        //% blockId="Green" block="绿色"
+        Green,
+        //% blockId="Blue" block="蓝色"
+        Blue,
+        //% blockId="White" block="白色"
+        White,
+        //% blockId="Cyan" block="青色"
+        Cyan,
+        //% blockId="Pinkish" block="品红"
+        Pinkish,
+        //% blockId="Green" block="黄色"
+        Yellow,
+
+    }
     export enum enLED1 {
         
         //% blockId="OFF" block="灭"
@@ -453,6 +453,26 @@ namespace mbit_小车类 {
 
     let initialized = false
 
+    export enum enColor {
+
+        //% blockId="OFF" block="灭"
+        OFF = 0,
+        //% blockId="Red" block="红色"
+        Red,
+        //% blockId="Green" block="绿色"
+        Green,
+        //% blockId="Blue" block="蓝色"
+        Blue,
+        //% blockId="White" block="白色"
+        White,
+        //% blockId="Cyan" block="青色"
+        Cyan,
+        //% blockId="Pinkish" block="品红"
+        Pinkish,
+        //% blockId="Green" block="黄色"
+        Yellow,
+
+    }
     export enum enMusic {
 
         dadadum = 0,
