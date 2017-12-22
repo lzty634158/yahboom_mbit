@@ -792,14 +792,16 @@ namespace mbit_小车类 {
 
         switch (direct) {
             case enPos.LeftState: {
-                /*if (pins.analogReadPin(AnalogPin.P2) < 500) {
-                    if (value == enLineState.White)
-                        temp = true;    
+                if (pins.analogReadPin(AnalogPin.P2) < 500) {
+                    /*if (value == enLineState.White)
+                        temp = true;*/
+                    temp = true;   
                 }
                 else {
-                    if (value == enLineState.Black)
-                        temp = true;
-                }*/
+                    /*if (value == enLineState.Black)
+                        temp = true;*/
+                    temp = true;
+                }
                 break;
             }
 
