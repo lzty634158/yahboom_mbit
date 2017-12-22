@@ -24,6 +24,6 @@
   "mbit_小车类.CarCtrlSpeed|block": "小车控制|%index|速度 %speed",
   "mbit_小车类.Music_Car|block": "小车音乐播放|%index",
   "mbit_小车类.Line_Sensor|block": "巡线传感器|引脚左 %pin1|引脚中 %pin2|引脚右 %pin3|位置 %direct|检测到 %value",
-  "mbit_小车类.RGB|block": "小车RGB大灯|红色 %value1|绿色 %value2|蓝色 %value3",
-  "mbit_小车类.RGB2|block": "RGB编程灯|编号 %index|红色 %value1|绿色 %value2|蓝色 %value3"
+  "mbit_小车类.RGB_Car_Big|block": "小车RGB探照灯|红色 %value1|绿色 %value2|蓝色 %value3",
+  "mbit_小车类.RGB_Car_Program|block": "七彩流水灯|编号 %index|红色 %value1|绿色 %value2|蓝色 %value3"
 }

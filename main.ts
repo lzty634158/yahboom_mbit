@@ -802,13 +802,13 @@ namespace mbit_小车类 {
 
     }
 
-    //% blockId=mbit_RGB block="RGB|value1 %value1|value2 %value2|value3 %value3"
+    //% blockId=mbit_RGB_Car_Big block="RGB_Car_Big|value1 %value1|value2 %value2|value3 %value3"
     //% weight=100
     //% blockGap=10
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB(value1: number, value2: number, value3: number): void {
+    export function RGB_Car_Big(value1: number, value2: number, value3: number): void {
 
         let R = value1 * 16;
         let G = value2 * 16;
@@ -833,7 +833,7 @@ namespace mbit_小车类 {
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB2(index: number, value1: number, value2: number, value3: number): void {
+    export function RGB_Car_Program(index: number, value1: number, value2: number, value3: number): void {
 
 
     }
