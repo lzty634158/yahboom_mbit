@@ -783,37 +783,39 @@ namespace mbit_小车类 {
         }
     }
 
-    //% blockId=mbit_Line_Sensor block="Line_Sensor|pin1 %pin1|pin2 %pin2|pin3 %pin3|direct %direct|value %value"
+    //% blockId=mbit_Line_Sensor block="Line_Sensor|direct %direct|value %value"
     //% weight=100
     //% blockGap=10
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
-    export function Line_Sensor(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, direct: enPos, value: enLineState): boolean {
+    export function Line_Sensor(direct: enPos, value: enLineState): boolean {
 
-        pins.setPull(pin1, PinPullMode.PullUp);
-        pins.setPull(pin2, PinPullMode.PullUp);
-        pins.setPull(pin3, PinPullMode.PullUp);
+        pins.setPull(AnalogPin.P2, PinPullMode.PullUp);
+        pins.setPull(AnalogPin.P1, PinPullMode.PullUp);
         let temp: boolean = false;
+        let Ad: number = 0; 
         switch (direct) {
             case enPos.LeftState: {
-                if (pins.digitalReadPin(pin1) == value)
-                    temp = true;
-                else
-                    temp = false;
+                if (pins.analogReadPin(AnalogPin.P2) < 500) {
+                    if (value == enLineState.White)
+                        temp = true;    
+                }
+                else {
+                    if (value == enLineState.Black)
+                        temp = true;
+                }
                 break;
             }
-            case enPos.MiddleState: {
-                if (pins.digitalReadPin(pin2) == value)
-                    temp = true;
-                else
-                    temp = false;
-                break;
-            }
+
             case enPos.RightState: {
-                if (pins.digitalReadPin(pin3) == value)
-                    temp = true;
-                else
-                    temp = false;
+                if (pins.analogReadPin(AnalogPin.P1) < 500) {
+                    if (value == enLineState.White)
+                        temp = true;
+                }
+                else {
+                    if (value == enLineState.Black)
+                        temp = true;
+                }
                 break;
             }
         }
