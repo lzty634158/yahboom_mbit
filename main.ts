@@ -482,10 +482,8 @@ namespace mbit_小车类 {
 
         //% blockId="LeftState" block="左边状态"
         LeftState = 0,
-        //% blockId="MiddleState" block="中间状态"
-        MiddleState = 1,
         //% blockId="RightState" block="右边状态"
-        RightState = 2
+        RightState = 1
     }
 
     export enum enLineState {
