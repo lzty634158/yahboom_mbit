@@ -5,6 +5,26 @@ load dependency
 "mbit": "file:../pxt-mbit"
 */
 
+export enum enColor {
+
+    //% blockId="OFF" block="灭"
+    OFF = 0,
+    //% blockId="Red" block="红色"
+    Red,
+    //% blockId="Green" block="绿色"
+    Green,
+    //% blockId="Blue" block="蓝色"
+    Blue,
+    //% blockId="White" block="白色"
+    White,
+    //% blockId="Cyan" block="青色"
+    Cyan,
+    //% blockId="Pinkish" block="品红"
+    Pinkish,
+    //% blockId="Green" block="黄色"
+    Yellow,
+
+}
 
 //% color="#C814B8" weight=10 icon="\uf1d4"
 namespace mbit_显示类 {
@@ -16,27 +36,6 @@ namespace mbit_显示类 {
         OFF = 0,
         //% blockId="ON" block="亮"
         ON =1
-    }
-
-    export enum enColor {
-
-        //% blockId="OFF" block="灭"
-        OFF = 0,
-        //% blockId="Red" block="红色"
-        Red,
-        //% blockId="Green" block="绿色"
-        Green,
-        //% blockId="Blue" block="蓝色"
-        Blue,
-        //% blockId="White" block="白色"
-        White,
-        //% blockId="Cyan" block="青色"
-        Cyan,
-        //% blockId="Pinkish" block="品红"
-        Pinkish,
-        //% blockId="Green" block="黄色"
-        Yellow,
-
     }
 
     //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
@@ -826,8 +825,65 @@ namespace mbit_小车类 {
         setPwm(2, 0, B);
        
     }
+    //% blockId=mbit_RGB_Car_Big2 block="RGB_Car_Big|value %value"
+    //% weight=100
+    //% blockGap=10
+    //% color="#C814B8"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function RGB_Car_Big2(value: enColor): void {
 
-    //% blockId=mbit_RGB2 block="RGB2|index %index|value1 %value1|value2 %value2|value3 %value3"
+        switch (value) {
+            case enColor.OFF: {
+                setPwm(0, 0, 0);
+                setPwm(1, 0, 0);
+                setPwm(2, 0, 0);
+                break;
+            }
+            case enColor.Red: {
+                setPwm(0, 0, 4095);
+                setPwm(1, 0, 0);
+                setPwm(2, 0, 0);
+                break;
+            }
+            case enColor.Green: {
+                setPwm(0, 0, 0);
+                setPwm(1, 0, 4095);
+                setPwm(2, 0, 0);
+                break;
+            }
+            case enColor.Blue: {
+                setPwm(0, 0, 0);
+                setPwm(1, 0, 0);
+                setPwm(2, 0, 4095);
+                break;
+            }
+            case enColor.White: {
+                setPwm(0, 0, 4095);
+                setPwm(1, 0, 4095);
+                setPwm(2, 0, 4095);
+                break;
+            }
+            case enColor.Cyan: {
+                setPwm(0, 0, 0);
+                setPwm(1, 0, 4095);
+                setPwm(2, 0, 4095);
+                break;
+            }
+            case enColor.Pinkish: {
+                setPwm(0, 0, 4095);
+                setPwm(1, 0, 0);
+                setPwm(2, 0, 4095);
+                break;
+            }
+            case enColor.Yellow: {
+                setPwm(0, 0, 4095);
+                setPwm(1, 0, 4095);
+                setPwm(2, 0, 0);
+                break;
+            }
+        }
+    }
+    //% blockId=mbit_RGB_Car_Program block="RGB_Car_Program|index %index|value1 %value1|value2 %value2|value3 %value3"
     //% weight=100
     //% blockGap=10
     //% color="#C814B8"
