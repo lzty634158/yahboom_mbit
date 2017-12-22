@@ -825,7 +825,7 @@ namespace mbit_小车类 {
         setPwm(2, 0, B);
        
     }
-    //% blockId=mbit_RGB_Car_Big2 block="RGB_Car_Big|value %value"
+    //% blockId=mbit_RGB_Car_Big2 block="RGB_Car_Big2|value %value"
     //% weight=100
     //% blockGap=10
     //% color="#C814B8"
