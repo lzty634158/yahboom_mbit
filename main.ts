@@ -809,14 +809,16 @@ namespace mbit_小车类 {
             }
 
             case enPos.RightState: {
-                /*if (pins.analogReadPin(AnalogPin.P1) < 500) {
-                    if (value == enLineState.White)
+                if (pins.analogReadPin(AnalogPin.P1) < 500) {
+                    if (value == enLineState.White) { 
                         temp = true;
+                    }
                 }
                 else {
-                    if (value == enLineState.Black)
+                    if (value == enLineState.Black) {
                         temp = true;
-                }*/
+                    }
+                }
                 break;
             }
         }
