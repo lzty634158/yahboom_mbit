@@ -554,6 +554,14 @@ namespace mbit_小车类 {
         if (!initialized) {
             initPCA9685();
         }
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350) {
+            speed = 350
+        }
+
         setPwm(12, 0, speed);
         setPwm(13, 0, 0);
 
@@ -571,6 +579,14 @@ namespace mbit_小车类 {
         if (!initialized) {
             initPCA9685();
         }
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350 && speed != 0) {
+            speed = 350
+        }
+
         setPwm(12, 0, 0);
         setPwm(13, 0, speed);
 
@@ -587,6 +603,13 @@ namespace mbit_小车类 {
     function Car_left(speed: number) {
         if (!initialized) {
             initPCA9685();
+        }
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350 && speed != 0) {
+            speed = 350
         }
         setPwm(12, 0, 0);
         setPwm(13, 0, 0);
@@ -606,6 +629,13 @@ namespace mbit_小车类 {
         if (!initialized) {
             initPCA9685();
         }
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350 && speed != 0) {
+            speed = 350
+        }
         setPwm(12, 0, speed);
         setPwm(13, 0, 0);
 
@@ -622,6 +652,7 @@ namespace mbit_小车类 {
         if (!initialized) {
             initPCA9685();
         }
+       
         setPwm(12, 0, 0);
         setPwm(13, 0, 0);
 
@@ -637,6 +668,13 @@ namespace mbit_小车类 {
 
         if (!initialized) {
             initPCA9685();
+        }
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350 && speed != 0) {
+            speed = 350
         }
         setPwm(12, 0, 0);
         setPwm(13, 0, speed);
@@ -655,6 +693,13 @@ namespace mbit_小车类 {
 
         if (!initialized) {
             initPCA9685();
+        }
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350 && speed != 0) {
+            speed = 350
         }
         setPwm(12, 0, speed);
         setPwm(13, 0, 0);
@@ -676,19 +721,19 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrl(index: CarState): void {
         switch (index) {
-            case CarState.Car_Run: Car_run(4095); break;
-            case CarState.Car_Back: Car_back(4095); break;
-            case CarState.Car_Left: Car_left(4095); break;
-            case CarState.Car_Right: Car_right(4095); break;
+            case CarState.Car_Run: Car_run(255); break;
+            case CarState.Car_Back: Car_back(255); break;
+            case CarState.Car_Left: Car_left(255); break;
+            case CarState.Car_Right: Car_right(255); break;
             case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(4095); break;
-            case CarState.Car_SpinRight: Car_spinright(4095); break;
+            case CarState.Car_SpinLeft: Car_spinleft(255); break;
+            case CarState.Car_SpinRight: Car_spinright(255); break;
         }
     }
     //% blockId=mbit_CarCtrlSpeed block="CarCtrlSpeed|%index|speed %speed"
     //% weight=100
     //% blockGap=10
-    //% value.speed=0 value.speed=1023
+    //% speed.min=0 speed.min=255
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrlSpeed(index: CarState, speed: number): void {
