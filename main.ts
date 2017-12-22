@@ -788,32 +788,30 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
     export function Line_Sensor(direct: enPos, value: enLineState): boolean {
 
-        pins.setPull(AnalogPin.P2, PinPullMode.PullUp);
-        pins.setPull(AnalogPin.P1, PinPullMode.PullUp);
         let temp: boolean = false;
-        let Ad: number = 0; 
+
         switch (direct) {
             case enPos.LeftState: {
-                if (pins.analogReadPin(AnalogPin.P2) < 500) {
+                /*if (pins.analogReadPin(AnalogPin.P2) < 500) {
                     if (value == enLineState.White)
                         temp = true;    
                 }
                 else {
                     if (value == enLineState.Black)
                         temp = true;
-                }
+                }*/
                 break;
             }
 
             case enPos.RightState: {
-                if (pins.analogReadPin(AnalogPin.P1) < 500) {
+                /*if (pins.analogReadPin(AnalogPin.P1) < 500) {
                     if (value == enLineState.White)
                         temp = true;
                 }
                 else {
                     if (value == enLineState.Black)
                         temp = true;
-                }
+                }*/
                 break;
             }
         }
