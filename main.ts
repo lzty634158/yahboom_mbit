@@ -435,10 +435,21 @@ namespace mbit_小车类 {
 
     const PCA9685_ADD = 0x41
     const MODE1 = 0x00
-//    const MODE2 = 0x01
-//    const SUBADR1 = 0x02
-//    const SUBADR2 = 0x03
-//   const SUBADR3 = 0x04
+    const MODE2 = 0x01
+    const SUBADR1 = 0x02
+    const SUBADR2 = 0x03
+    const SUBADR3 = 0x04
+
+    const LED0_ON_L = 0x06
+    const LED0_ON_H = 0x07
+    const LED0_OFF_L = 0x08
+    const LED0_OFF_H = 0x09
+
+    const ALL_LED_ON_L = 0xFA
+    const ALL_LED_ON_H = 0xFB
+    const ALL_LED_OFF_L = 0xFC
+    const ALL_LED_OFF_H = 0xFD
+
     const PRESCALE = 0xFE
 
     let initialized = false
@@ -529,7 +540,7 @@ namespace mbit_小车类 {
             return;
 
         let buf = pins.createBuffer(5);
-        buf[0] = 6 + 4 * channel;
+        buf[0] = LED0_ON_L + 4 * channel;
         buf[1] = on & 0xff;
         buf[2] = (on >> 8) & 0xff;
         buf[3] = off & 0xff;
@@ -543,11 +554,11 @@ namespace mbit_小车类 {
         if (!initialized) {
             initPCA9685();
         }
-        setPwm(0, 0, speed);
-        setPwm(1, 0, 0);
+        setPwm(12, 0, speed);
+        setPwm(13, 0, 0);
 
-        setPwm(2, 0, speed);
-        setPwm(3, 0, 0);
+        setPwm(14, 0, speed);
+        setPwm(15, 0, 0);
         //pins.digitalWritePin(DigitalPin.P16, 1);
        // pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
 
