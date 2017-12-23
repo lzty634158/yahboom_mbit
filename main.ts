@@ -846,7 +846,7 @@ namespace mbit_小车类 {
         pins.digitalWritePin(DigitalPin.P9, 0);
         switch (value) {
             case enAvoidState.OBSTACLE: {
-                if (pins.analogReadPin(AnalogPin.P3) < 500) {
+                if (pins.analogReadPin(AnalogPin.P3) < 800) {
                 
                     temp = true;
                 }
@@ -857,7 +857,7 @@ namespace mbit_小车类 {
             }
 
             case enAvoidState.NOOBSTACLE: {
-                if (pins.analogReadPin(AnalogPin.P3) > 500) {
+                if (pins.analogReadPin(AnalogPin.P3) > 800) {
 
                     temp = true;
                 }
