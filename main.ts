@@ -973,7 +973,7 @@ namespace mbit_小车类 {
     //% weight=100
     //% blockGap=10
     //% color="#006400"
-    //% num.min=1 num.max=3
+    //% num.min=1 num.max=3 value.min=0 value.max=180
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=9
     export function Servo_Car(num: number, value: number): void {
 
