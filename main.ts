@@ -494,6 +494,15 @@ namespace mbit_小车类 {
 
     }
 
+    
+    export enum enAvoidState {
+        //% blockId="OBSTACLE" block="有障碍物"
+        OBSTACLE = 0,
+        //% blockId="NOOBSTACLE" block="无障碍物"
+        NOOBSTACLE = 1
+
+    }
+
     export enum CarState {
         //% blockId="Car_Run" block="前行"
         Car_Run = 1,
@@ -826,6 +835,42 @@ namespace mbit_小车类 {
 
     }
 
+    //% blockId=mbit_Avoid_Sensor block="Avoid_Sensor|value %value"
+    //% weight=100
+    //% blockGap=10
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
+    export function Avoid_Sensor(value: enAvoidState): boolean {
+
+        let temp: boolean = false;
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        switch (value) {
+            case enAvoidState.OBSTACLE: {
+                if (pins.analogReadPin(AnalogPin.P3) < 500) {
+                
+                    temp = true;
+                }
+                else {                 
+                    temp = false;
+                }
+                break;
+            }
+
+            case enAvoidState.NOOBSTACLE: {
+                if (pins.analogReadPin(AnalogPin.P3) > 500) {
+
+                    temp = true;
+                }
+                else {
+                    temp = false;
+                }
+                break;
+            }
+        }
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        return temp;
+
+    }
     //% blockId=mbit_RGB_Car_Big block="RGB_Car_Big|value1 %value1|value2 %value2|value3 %value3"
     //% weight=100
     //% blockGap=10
@@ -918,4 +963,6 @@ namespace mbit_小车类 {
 
 
     }
+
+
 }
