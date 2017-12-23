@@ -969,5 +969,21 @@ namespace mbit_小车类 {
 
     }
 
+    //% blockId=mbit_Servo_Car block="Servo_Car|num %num|value %value"
+    //% weight=100
+    //% blockGap=10
+    //% color="#006400"
+    //% num.min=1 num.max=3
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=9
+    export function Servo_Car(num: number, value: number): void {
 
+        if (!initialized) {
+            initPCA9685();
+        }
+        // 50hz: 20,000 us
+        let us = (value * 1800 / 180 + 600); // 0.6 ~ 2.4
+        let pwm = us * 4096 / 20000;
+        setPwm(num + 2, 0, pwm);
+
+    }
 }
