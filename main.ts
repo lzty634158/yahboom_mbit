@@ -805,14 +805,13 @@ namespace mbit_小车类 {
                     if (value == enLineState.White) {
                         temp = true;
                     }
-                        
-
+                    setPwm(7, 0, 4095);                     
                 }
                 else {
                     if (value == enLineState.Black){
                         temp = true;
                     }
-
+                    setPwm(7, 0, 0);
                 }
                 break;
             }
@@ -822,11 +821,13 @@ namespace mbit_小车类 {
                     if (value == enLineState.White) { 
                         temp = true;
                     }
+                    setPwm(6, 0, 4095);
                 }
                 else {
                     if (value == enLineState.Black) {
                         temp = true;
                     }
+                    setPwm(6, 0, 0);
                 }
                 break;
             }
@@ -849,9 +850,11 @@ namespace mbit_小车类 {
                 if (pins.analogReadPin(AnalogPin.P3) < 800) {
                 
                     temp = true;
+                    setPwm(8, 0, 0);
                 }
                 else {                 
                     temp = false;
+                    setPwm(8, 0, 4095);
                 }
                 break;
             }
@@ -860,9 +863,11 @@ namespace mbit_小车类 {
                 if (pins.analogReadPin(AnalogPin.P3) > 800) {
 
                     temp = true;
+                    setPwm(8, 0, 4095);
                 }
                 else {
                     temp = false;
+                    setPwm(8, 0, 0);
                 }
                 break;
             }
