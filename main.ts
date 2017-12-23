@@ -493,7 +493,6 @@ namespace mbit_小车类 {
         Black = 1
 
     }
-
     
     export enum enAvoidState {
         //% blockId="OBSTACLE" block="有障碍物"
@@ -503,6 +502,13 @@ namespace mbit_小车类 {
 
     }
 
+    
+    export enum enServo {
+        
+        S1 = 1,
+        S2,
+        S3
+    }
     export enum CarState {
         //% blockId="Car_Run" block="前行"
         Car_Run = 1,
@@ -975,7 +981,7 @@ namespace mbit_小车类 {
     //% color="#006400"
     //% num.min=1 num.max=3 value.min=0 value.max=180
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=9
-    export function Servo_Car(num: number, value: number): void {
+    export function Servo_Car(num: enServo, value: number): void {
 
         if (!initialized) {
             initPCA9685();
