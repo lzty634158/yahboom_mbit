@@ -746,166 +746,10 @@ namespace mbit_小车类 {
 
     }
 
-    //% blockId=mbit_CarCtrl block="CarCtrl|%index"
-    //% weight=100
-    //% blockGap=10
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function CarCtrl(index: CarState): void {
-        switch (index) {
-            case CarState.Car_Run: Car_run(255); break;
-            case CarState.Car_Back: Car_back(255); break;
-            case CarState.Car_Left: Car_left(255); break;
-            case CarState.Car_Right: Car_right(255); break;
-            case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(255); break;
-            case CarState.Car_SpinRight: Car_spinright(255); break;
-        }
-    }
-    //% blockId=mbit_CarCtrlSpeed block="CarCtrlSpeed|%index|speed %speed"
-    //% weight=100
-    //% blockGap=10
-    //% speed.min=0 speed.max=255
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function CarCtrlSpeed(index: CarState, speed: number): void {
-        switch (index) {
-            case CarState.Car_Run: Car_run(speed); break;
-            case CarState.Car_Back: Car_back(speed); break;
-            case CarState.Car_Left: Car_left(speed); break;
-            case CarState.Car_Right: Car_right(speed); break;
-            case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(speed); break;
-            case CarState.Car_SpinRight: Car_spinright(speed); break;
-        }
-    }
-    //% blockId=mbit_Music_Car block="Music_Car|%index"
-    //% weight=100
-    //% blockGap=10
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=11
-    export function Music_Car(index: enMusic): void {
-        switch (index) {
-            case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;
-            case enMusic.birthday: music.beginMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once); break;
-            /*case enMusic.Car_Left: Car_left(); break;
-            case enMusic.Car_Right: Car_right(); break;
-            case enMusic.Car_Stop: Car_stop(); break;
-            case enMusic.Car_SpinLeft: Car_spinleft(); break;
-            case enMusic.Car_SpinRight: Car_spinright(); break;*/
-        }
-    }
-
-    //% blockId=mbit_Line_Sensor block="Line_Sensor|direct %direct|value %value"
-    //% weight=100
-    //% blockGap=10
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
-    export function Line_Sensor(direct: enPos, value: enLineState): boolean {
-
-        let temp: boolean = false;
-
-        switch (direct) {
-            case enPos.LeftState: {
-                if (pins.analogReadPin(AnalogPin.P2) < 500) {
-                    if (value == enLineState.White) {
-                        temp = true;
-                    }
-                    setPwm(7, 0, 4095);                     
-                }
-                else {
-                    if (value == enLineState.Black){
-                        temp = true;
-                    }
-                    setPwm(7, 0, 0);
-                }
-                break;
-            }
-
-            case enPos.RightState: {
-                if (pins.analogReadPin(AnalogPin.P1) < 500) {
-                    if (value == enLineState.White) { 
-                        temp = true;
-                    }
-                    setPwm(6, 0, 4095);
-                }
-                else {
-                    if (value == enLineState.Black) {
-                        temp = true;
-                    }
-                    setPwm(6, 0, 0);
-                }
-                break;
-            }
-        }
-        return temp;
-
-    }
-
-    //% blockId=mbit_Avoid_Sensor block="Avoid_Sensor|value %value"
-    //% weight=100
-    //% blockGap=10
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
-    export function Avoid_Sensor(value: enAvoidState): boolean {
-
-        let temp: boolean = false;
-        pins.digitalWritePin(DigitalPin.P9, 0);
-        switch (value) {
-            case enAvoidState.OBSTACLE: {
-                if (pins.analogReadPin(AnalogPin.P3) < 800) {
-                
-                    temp = true;
-                    setPwm(8, 0, 0);
-                }
-                else {                 
-                    temp = false;
-                    setPwm(8, 0, 4095);
-                }
-                break;
-            }
-
-            case enAvoidState.NOOBSTACLE: {
-                if (pins.analogReadPin(AnalogPin.P3) > 800) {
-
-                    temp = true;
-                    setPwm(8, 0, 4095);
-                }
-                else {
-                    temp = false;
-                    setPwm(8, 0, 0);
-                }
-                break;
-            }
-        }
-        pins.digitalWritePin(DigitalPin.P9, 1);
-        return temp;
-
-    }
-    //% blockId=mbit_RGB_Car_Big block="RGB_Car_Big|value1 %value1|value2 %value2|value3 %value3"
-    //% weight=100
-    //% blockGap=10
-    //% color="#C814B8"
-    //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB_Car_Big(value1: number, value2: number, value3: number): void {
-
-        let R = value1 * 16;
-        let G = value2 * 16;
-        let B = value3 * 16;
-
-        if (R > 4096)
-            R = 4095;
-        if (G > 4096)
-            G = 4095;
-        if (B > 4096)
-            B = 4095;
-
-        setPwm(0, 0, R);
-        setPwm(1, 0, G);
-        setPwm(2, 0, B);
-       
-    }
+    /**
+     * *****************************************************************
+     * @param index
+     */
     //% blockId=mbit_RGB_Car_Big2 block="RGB_Car_Big2|value %value"
     //% weight=100
     //% blockGap=10
@@ -964,8 +808,32 @@ namespace mbit_小车类 {
             }
         }
     }
+    //% blockId=mbit_RGB_Car_Big block="RGB_Car_Big|value1 %value1|value2 %value2|value3 %value3"
+    //% weight=99
+    //% blockGap=10
+    //% color="#C814B8"
+    //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function RGB_Car_Big(value1: number, value2: number, value3: number): void {
+
+        let R = value1 * 16;
+        let G = value2 * 16;
+        let B = value3 * 16;
+
+        if (R > 4096)
+            R = 4095;
+        if (G > 4096)
+            G = 4095;
+        if (B > 4096)
+            B = 4095;
+
+        setPwm(0, 0, R);
+        setPwm(1, 0, G);
+        setPwm(2, 0, B);
+
+    }
     //% blockId=mbit_RGB_Car_Program block="RGB_Car_Program|index %index|value1 %value1|value2 %value2|value3 %value3"
-    //% weight=100
+    //% weight=98
     //% blockGap=10
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
@@ -974,9 +842,24 @@ namespace mbit_小车类 {
 
 
     }
-
+    //% blockId=mbit_Music_Car block="Music_Car|%index"
+    //% weight=97
+    //% blockGap=10
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=11
+    export function Music_Car(index: enMusic): void {
+        switch (index) {
+            case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;
+            case enMusic.birthday: music.beginMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once); break;
+            /*case enMusic.Car_Left: Car_left(); break;
+            case enMusic.Car_Right: Car_right(); break;
+            case enMusic.Car_Stop: Car_stop(); break;
+            case enMusic.Car_SpinLeft: Car_spinleft(); break;
+            case enMusic.Car_SpinRight: Car_spinright(); break;*/
+        }
+    }
     //% blockId=mbit_Servo_Car block="Servo_Car|num %num|value %value"
-    //% weight=100
+    //% weight=96
     //% blockGap=10
     //% color="#006400"
     //% num.min=1 num.max=3 value.min=0 value.max=180
@@ -991,5 +874,124 @@ namespace mbit_小车类 {
         let pwm = us * 4096 / 20000;
         setPwm(num + 2, 0, pwm);
 
+    }
+
+    //% blockId=mbit_Avoid_Sensor block="Avoid_Sensor|value %value"
+    //% weight=95
+    //% blockGap=10
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
+    export function Avoid_Sensor(value: enAvoidState): boolean {
+
+        let temp: boolean = false;
+        pins.digitalWritePin(DigitalPin.P9, 0);
+        switch (value) {
+            case enAvoidState.OBSTACLE: {
+                if (pins.analogReadPin(AnalogPin.P3) < 800) {
+                
+                    temp = true;
+                    setPwm(8, 0, 0);
+                }
+                else {                 
+                    temp = false;
+                    setPwm(8, 0, 4095);
+                }
+                break;
+            }
+
+            case enAvoidState.NOOBSTACLE: {
+                if (pins.analogReadPin(AnalogPin.P3) > 800) {
+
+                    temp = true;
+                    setPwm(8, 0, 4095);
+                }
+                else {
+                    temp = false;
+                    setPwm(8, 0, 0);
+                }
+                break;
+            }
+        }
+        pins.digitalWritePin(DigitalPin.P9, 1);
+        return temp;
+
+    }
+    //% blockId=mbit_Line_Sensor block="Line_Sensor|direct %direct|value %value"
+    //% weight=94
+    //% blockGap=10
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=12
+    export function Line_Sensor(direct: enPos, value: enLineState): boolean {
+
+        let temp: boolean = false;
+
+        switch (direct) {
+            case enPos.LeftState: {
+                if (pins.analogReadPin(AnalogPin.P2) < 500) {
+                    if (value == enLineState.White) {
+                        temp = true;
+                    }
+                    setPwm(7, 0, 4095);
+                }
+                else {
+                    if (value == enLineState.Black) {
+                        temp = true;
+                    }
+                    setPwm(7, 0, 0);
+                }
+                break;
+            }
+
+            case enPos.RightState: {
+                if (pins.analogReadPin(AnalogPin.P1) < 500) {
+                    if (value == enLineState.White) {
+                        temp = true;
+                    }
+                    setPwm(6, 0, 4095);
+                }
+                else {
+                    if (value == enLineState.Black) {
+                        temp = true;
+                    }
+                    setPwm(6, 0, 0);
+                }
+                break;
+            }
+        }
+        return temp;
+
+    }
+    //% blockId=mbit_CarCtrl block="CarCtrl|%index"
+    //% weight=93
+    //% blockGap=10
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function CarCtrl(index: CarState): void {
+        switch (index) {
+            case CarState.Car_Run: Car_run(255); break;
+            case CarState.Car_Back: Car_back(255); break;
+            case CarState.Car_Left: Car_left(255); break;
+            case CarState.Car_Right: Car_right(255); break;
+            case CarState.Car_Stop: Car_stop(); break;
+            case CarState.Car_SpinLeft: Car_spinleft(255); break;
+            case CarState.Car_SpinRight: Car_spinright(255); break;
+        }
+    }
+    //% blockId=mbit_CarCtrlSpeed block="CarCtrlSpeed|%index|speed %speed"
+    //% weight=92
+    //% blockGap=10
+    //% speed.min=0 speed.max=255
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function CarCtrlSpeed(index: CarState, speed: number): void {
+        switch (index) {
+            case CarState.Car_Run: Car_run(speed); break;
+            case CarState.Car_Back: Car_back(speed); break;
+            case CarState.Car_Left: Car_left(speed); break;
+            case CarState.Car_Right: Car_right(speed); break;
+            case CarState.Car_Stop: Car_stop(); break;
+            case CarState.Car_SpinLeft: Car_spinleft(speed); break;
+            case CarState.Car_SpinRight: Car_spinright(speed); break;
+        }
     }
 }
