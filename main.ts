@@ -39,7 +39,7 @@ namespace mbit_显示类 {
     }
 
     //% blockId=mbit_LED1 block="LED1|pin %pin|value %value"
-    //% weight=1
+    //% weight=5
     //% blockGap=8
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
@@ -50,7 +50,7 @@ namespace mbit_显示类 {
     }
 
     //% blockId=mbit_LED2 block="LED2|pin %pin|value %value"
-    //% weight=2
+    //% weight=4
     //% blockGap=8
     //% color="#C814B8"
     //% value.min=0 value.max=255
@@ -83,7 +83,7 @@ namespace mbit_显示类 {
     }
 
     //% blockId=mbit_RGB block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value1 %value1|value2 %value2|value3 %value3"
-    //% weight=4
+    //% weight=2
     //% blockGap=8
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
@@ -96,7 +96,7 @@ namespace mbit_显示类 {
 
     }
     //% blockId=mbit_RGB2 block="RGB|pin1 %pin1|pin2 %pin2|pin3 %pin3|value %value"
-    //% weight=5
+    //% weight=1
     //% blockGap=8
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
