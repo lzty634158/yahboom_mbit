@@ -857,7 +857,7 @@ namespace mbit_小车类 {
     //% blockGap=10
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB_Car_Program(): neopixel.Strip {
+    export function RGB_Car_Program(): yahStrip.Strip {
         
             if (!yahStrip) {
                 yahStrip = yahStrip.create(DigitalPin.P16, 3, NeoPixelMode.RGB)
