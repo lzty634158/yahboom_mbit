@@ -857,18 +857,18 @@ namespace mbit_小车类 {
     //% blockGap=10
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB_Car_Program(): neopixel.Strip {
-        
-        if (!yahStrip) {
-            yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB)
-        }
-        return yahStrip;  
+    export function RGB_Car_Program(): void {
+        //neopixel.Strip
+        //if (!yahStrip) {
+        //    yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB)
+        //}
+        //return yahStrip;  
     }
     //% blockId=mbit_Music_Car block="Music_Car|%index"
     //% weight=97
     //% blockGap=10
     //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=11
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Music_Car(index: enMusic): void {
         switch (index) {
             case enMusic.dadadum: music.beginMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once); break;

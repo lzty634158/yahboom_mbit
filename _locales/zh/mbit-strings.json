@@ -20,7 +20,7 @@
   "mbit_电机类.Fan|block": "风扇|引脚 %pin|速度 %value",
   "mbit_电机类.Servo|block": "舵机|引脚 %pin|角度 %value",
 
-   "mbit_小车类.RGB_Car_Big|block": "小车RGB探照灯|红色 %value1|绿色 %value2|蓝色 %value3",
+  "mbit_小车类.RGB_Car_Big|block": "小车RGB探照灯|红色 %value1|绿色 %value2|蓝色 %value3",
   "mbit_小车类.RGB_Car_Big2|block": "小车RGB探照灯|选择车灯颜色 %value",
   "mbit_小车类.RGB_Car_Program|block": "七彩流水灯",
   "mbit_小车类.Music_Car|block": "小车音乐播放|%index",
