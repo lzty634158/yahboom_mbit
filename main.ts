@@ -859,12 +859,10 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function RGB_Car_Program(): neopixel.Strip {
         
-            if (!yahStrip) {
-                yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB)
-            }
-
-        return yahStrip;
+        if (!yahStrip) {
+            yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB)
         }
+        return yahStrip;  
     }
     //% blockId=mbit_Music_Car block="Music_Car|%index"
     //% weight=97
