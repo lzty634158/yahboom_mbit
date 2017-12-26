@@ -590,7 +590,9 @@ namespace mbit_小车类 {
     function setPwm(channel: number, on: number, off: number): void {
         if (channel < 0 || channel > 15)
             return;
-
+        if (!initialized) {
+            initPCA9685();
+        }
         let buf = pins.createBuffer(5);
         buf[0] = LED0_ON_L + 4 * channel;
         buf[1] = on & 0xff;
@@ -603,9 +605,6 @@ namespace mbit_小车类 {
 
     function Car_run(speed: number) {
 
-        if (!initialized) {
-            initPCA9685();
-        }
         speed = speed * 16; // map 350 to 4096
         if (speed >= 4096) {
             speed = 4095
@@ -628,9 +627,6 @@ namespace mbit_小车类 {
 
     function Car_back(speed: number) {
 
-        if (!initialized) {
-            initPCA9685();
-        }
         speed = speed * 16; // map 350 to 4096
         if (speed >= 4096) {
             speed = 4095
@@ -653,9 +649,7 @@ namespace mbit_小车类 {
     }
 
     function Car_left(speed: number) {
-        if (!initialized) {
-            initPCA9685();
-        }
+
         speed = speed * 16; // map 350 to 4096
         if (speed >= 4096) {
             speed = 4095
@@ -678,9 +672,6 @@ namespace mbit_小车类 {
 
     function Car_right(speed: number) {
 
-        if (!initialized) {
-            initPCA9685();
-        }
         speed = speed * 16; // map 350 to 4096
         if (speed >= 4096) {
             speed = 4095
@@ -701,9 +692,6 @@ namespace mbit_小车类 {
     }
 
     function Car_stop() {
-        if (!initialized) {
-            initPCA9685();
-        }
        
         setPwm(12, 0, 0);
         setPwm(13, 0, 0);
@@ -718,9 +706,6 @@ namespace mbit_小车类 {
 
     function Car_spinleft(speed: number) {
 
-        if (!initialized) {
-            initPCA9685();
-        }
         speed = speed * 16; // map 350 to 4096
         if (speed >= 4096) {
             speed = 4095
@@ -743,9 +728,6 @@ namespace mbit_小车类 {
 
     function Car_spinright(speed: number) {
 
-        if (!initialized) {
-            initPCA9685();
-        }
         speed = speed * 16; // map 350 to 4096
         if (speed >= 4096) {
             speed = 4095
@@ -857,12 +839,12 @@ namespace mbit_小车类 {
     //% blockGap=10
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB_Car_Program(): void {
-        //neopixel.Strip 
-        //if (!yahStrip) {
-        //    yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB);
-        //}
-        //return yahStrip;  
+    export function RGB_Car_Program(): neopixel.Strip {
+         
+        if (!yahStrip) {
+            yahStrip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB);
+        }
+        return yahStrip;  
     }
     //% blockId=mbit_Music_Car block="Music_Car|%index"
     //% weight=97
@@ -901,9 +883,6 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=9
     export function Servo_Car(num: enServo, value: number): void {
 
-        if (!initialized) {
-            initPCA9685();
-        }
         // 50hz: 20,000 us
         let us = (value * 1800 / 180 + 600); // 0.6 ~ 2.4
         let pwm = us * 4096 / 20000;
