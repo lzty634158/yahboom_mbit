@@ -452,6 +452,7 @@ namespace mbit_小车类 {
     const PRESCALE = 0xFE
 
     let initialized = false
+    let yahStrip: neopixel.Strip;
 
     export enum enColor {
 
@@ -851,15 +852,19 @@ namespace mbit_小车类 {
         setPwm(2, 0, B);
 
     }
-    //% blockId=mbit_RGB_Car_Program block="RGB_Car_Program|index %index|value1 %value1|value2 %value2|value3 %value3"
+    //% blockId=mbit_RGB_Car_Program block="RGB_Car_Program"
     //% weight=98
     //% blockGap=10
     //% color="#C814B8"
-    //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB_Car_Program(index: number, value1: number, value2: number, value3: number): void {
+    export function RGB_Car_Program(): neopixel.Strip {
+        
+            if (!yahStrip) {
+                yahStrip = yahStrip.create(DigitalPin.P16, 3, NeoPixelMode.RGB)
+            }
 
-
+        return yahStrip;
+        }
     }
     //% blockId=mbit_Music_Car block="Music_Car|%index"
     //% weight=97
