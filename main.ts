@@ -753,7 +753,7 @@ namespace mbit_小车类 {
      * @param index
      */
     //% blockId=mbit_RGB_Car_Big2 block="RGB_Car_Big2|value %value"
-    //% weight=100
+    //% weight=101
     //% blockGap=10
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -811,7 +811,7 @@ namespace mbit_小车类 {
         }
     }
     //% blockId=mbit_RGB_Car_Big block="RGB_Car_Big|value1 %value1|value2 %value2|value3 %value3"
-    //% weight=99
+    //% weight=100
     //% blockGap=10
     //% color="#C814B8"
     //% value1.min=0 value1.max=255 value2.min=0 value2.max=255 value3.min=0 value3.max=255
@@ -834,8 +834,9 @@ namespace mbit_小车类 {
         setPwm(2, 0, B);
 
     }
+
     //% blockId=mbit_RGB_Car_Program block="RGB_Car_Program"
-    //% weight=98
+    //% weight=99
     //% blockGap=10
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -846,6 +847,28 @@ namespace mbit_小车类 {
         }
         return yahStrip;  
     }
+
+
+	//% blockId=mbit_ultrasonic_car block="ultrasonic return distance(cm)"
+    //% color="#006400"
+    //% weight=98
+    //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Ultrasonic_Car(): number {
+
+        // send pulse
+        pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
+        pins.digitalWritePin(DigitalPin.P14, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(DigitalPin.P14, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(DigitalPin.P14, 0);
+
+        // read pulse
+        let d = pins.pulseIn(DigitalPin.P15, PulseValue.High, 43200);
+        return d / 58;
+    }
+
     //% blockId=mbit_Music_Car block="Music_Car|%index"
     //% weight=97
     //% blockGap=10
