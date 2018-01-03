@@ -241,7 +241,7 @@ namespace mbit_传感器类 {
     export function Ultrasonic(Trig: DigitalPin, Echo: DigitalPin): number {
 
         // send pulse
-        pins.setPull(pin1, PinPullMode.PullNone);
+        pins.setPull(Trig, PinPullMode.PullNone);
         pins.digitalWritePin(Trig, 0);
         control.waitMicros(2);
         pins.digitalWritePin(Trig, 1);
