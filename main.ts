@@ -233,23 +233,23 @@ namespace mbit_传感器类 {
 
     }
    
-    //% blockId=mbit_ultrasonic block="Ultrasonic|pin1 %Trig|pin2 %Echo"
+    //% blockId=mbit_ultrasonic block="Ultrasonic|Trig %Trig|Echo %Echo"
     //% color="#87CEEB"
     //% weight=100
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Ultrasonic(pin1: DigitalPin, pin2: DigitalPin): number {
+    export function Ultrasonic(Trig: DigitalPin, Echo: DigitalPin): number {
 
         // send pulse
         pins.setPull(pin1, PinPullMode.PullNone);
-        pins.digitalWritePin(pin1, 0);
+        pins.digitalWritePin(Trig, 0);
         control.waitMicros(2);
-        pins.digitalWritePin(pin1, 1);
+        pins.digitalWritePin(Trig, 1);
         control.waitMicros(10);
-        pins.digitalWritePin(pin1, 0);
+        pins.digitalWritePin(Trig, 0);
 
         // read pulse
-        let d = pins.pulseIn(pin2, PulseValue.High, 23200);
+        let d = pins.pulseIn(Echo, PulseValue.High, 23200);
         return d / 58;
     }
 }
