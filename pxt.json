@@ -12,7 +12,7 @@
     "files": [
         "README.md",
         "main.ts",
-        "_locales/zh/mbit-strings.json"
+        "_locales/zh/mbit-strings.json",
 	
 	"shims.d.ts",
         "enums.d.ts",
