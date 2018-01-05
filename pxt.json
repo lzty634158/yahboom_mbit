@@ -12,13 +12,8 @@
     "files": [
         "README.md",
         "main.ts",
-        "_locales/zh/mbit-strings.json",
-	"ir.cpp",
-        "ReceiverIR.cpp",
-        "ReceiverIR.h",
-        "RemoteIR.h",
-        "TransmitterIR.cpp",
-        "TransmitterIR.h"
+        "_locales/zh/mbit-strings.json"
+
     ],
     "testFiles": [
         "test.ts"
