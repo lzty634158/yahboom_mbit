@@ -5,7 +5,14 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "neopixel": "github:microsoft/pxt-neopixel#v0.3.10"
+        "neopixel": "github:microsoft/pxt-neopixel#v0.3.10",
+	
+	"ir.cpp",
+        "ReceiverIR.cpp",
+        "ReceiverIR.h",
+        "RemoteIR.h",
+        "TransmitterIR.cpp",
+        "TransmitterIR.h"
     },
     "files": [
         "README.md",
