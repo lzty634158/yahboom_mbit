@@ -5,19 +5,23 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "neopixel": "github:microsoft/pxt-neopixel#v0.3.10",
+        "neopixel": "github:microsoft/pxt-neopixel#v0.3.10"
 	
+
+    },
+    "files": [
+        "README.md",
+        "main.ts",
+        "_locales/zh/mbit-strings.json"
+	
+	"shims.d.ts",
+        "enums.d.ts",
 	"ir.cpp",
         "ReceiverIR.cpp",
         "ReceiverIR.h",
         "RemoteIR.h",
         "TransmitterIR.cpp",
         "TransmitterIR.h"
-    },
-    "files": [
-        "README.md",
-        "main.ts",
-        "_locales/zh/mbit-strings.json"
     ],
     "testFiles": [
         "test.ts"
