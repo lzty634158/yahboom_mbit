@@ -26,7 +26,7 @@ namespace mbit_显示类 {
         Cyan,
         //% blockId="Pinkish" block="品红"
         Pinkish,
-        //% blockId="Green" block="黄色"
+        //% blockId="Yellow" block="黄色"
         Yellow,
 
     }
@@ -470,7 +470,7 @@ namespace mbit_小车类 {
         Cyan,
         //% blockId="Pinkish" block="品红"
         Pinkish,
-        //% blockId="Green" block="黄色"
+        //% blockId="Yellow" block="黄色"
         Yellow,
 
     }
