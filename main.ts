@@ -603,20 +603,27 @@ namespace mbit_小车类 {
     }
 
 
-    function Car_run(speed: number) {
+    function Car_run(speed1: number, speed2: number) {
 
-        speed = speed * 16; // map 350 to 4096
-        if (speed >= 4096) {
-            speed = 4095
+        speed1 = speed1 * 16; // map 350 to 4096
+        speed2 = speed2 * 16;
+        if (speed1 >= 4096) {
+            speed1 = 4095
         }
-        if (speed <= 350) {
-            speed = 350
+        if (speed1 <= 350) {
+            speed1 = 350
+        }
+        if (speed2 >= 4096) {
+            speed2 = 4095
+        }
+        if (speed2 <= 350) {
+            speed2 = 350
         }
 
-        setPwm(12, 0, speed);
+        setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
-        setPwm(15, 0, speed);
+        setPwm(15, 0, speed2);
         setPwm(14, 0, 0);
         //pins.digitalWritePin(DigitalPin.P16, 1);
        // pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
@@ -625,21 +632,28 @@ namespace mbit_小车类 {
        // pins.digitalWritePin(DigitalPin.P8, 0);
     }
 
-    function Car_back(speed: number) {
+    function Car_back(speed1: number, speed2: number) {
 
-        speed = speed * 16; // map 350 to 4096
-        if (speed >= 4096) {
-            speed = 4095
+        speed1 = speed1 * 16; // map 350 to 4096
+        speed2 = speed2 * 16;
+        if (speed1 >= 4096) {
+            speed1 = 4095
         }
-        if (speed <= 350 && speed != 0) {
-            speed = 350
+        if (speed1 <= 350) {
+            speed1 = 350
+        }
+        if (speed2 >= 4096) {
+            speed2 = 4095
+        }
+        if (speed2 <= 350) {
+            speed2 = 350
         }
 
         setPwm(12, 0, 0);
-        setPwm(13, 0, speed);
+        setPwm(13, 0, speed1);
 
         setPwm(15, 0, 0);
-        setPwm(14, 0, speed);
+        setPwm(14, 0, speed2);
 
         //pins.digitalWritePin(DigitalPin.P16, 0);
         //pins.analogWritePin(AnalogPin.P1, speed); //速度控制
@@ -648,19 +662,27 @@ namespace mbit_小车类 {
         //pins.digitalWritePin(DigitalPin.P8, 1);
     }
 
-    function Car_left(speed: number) {
+    function Car_left(speed1: number, speed2: number) {
 
-        speed = speed * 16; // map 350 to 4096
-        if (speed >= 4096) {
-            speed = 4095
+        speed1 = speed1 * 16; // map 350 to 4096
+        speed2 = speed2 * 16;
+        if (speed1 >= 4096) {
+            speed1 = 4095
         }
-        if (speed <= 350 && speed != 0) {
-            speed = 350
+        if (speed1 <= 350) {
+            speed1 = 350
         }
-        setPwm(12, 0, 0);
+        if (speed2 >= 4096) {
+            speed2 = 4095
+        }
+        if (speed2 <= 350) {
+            speed2 = 350
+        }
+        
+        setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
-        setPwm(15, 0, speed);
+        setPwm(15, 0, speed2);
         setPwm(14, 0, 0);
 
         //pins.analogWritePin(AnalogPin.P0, speed);
@@ -670,19 +692,27 @@ namespace mbit_小车类 {
         //pins.digitalWritePin(DigitalPin.P1, 0);
     }
 
-    function Car_right(speed: number) {
+    function Car_right(speed1: number, speed2: number) {
 
-        speed = speed * 16; // map 350 to 4096
-        if (speed >= 4096) {
-            speed = 4095
+        speed1 = speed1 * 16; // map 350 to 4096
+        speed2 = speed2 * 16;
+        if (speed1 >= 4096) {
+            speed1 = 4095
         }
-        if (speed <= 350 && speed != 0) {
-            speed = 350
+        if (speed1 <= 350) {
+            speed1 = 350
         }
-        setPwm(12, 0, speed);
+        if (speed2 >= 4096) {
+            speed2 = 4095
+        }
+        if (speed2 <= 350) {
+            speed2 = 350
+        }
+        
+        setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
-        setPwm(15, 0, 0);
+        setPwm(15, 0, speed2);
         setPwm(14, 0, 0);
         //pins.digitalWritePin(DigitalPin.P0, 0);
         //pins.digitalWritePin(DigitalPin.P8, 0);
@@ -704,19 +734,27 @@ namespace mbit_小车类 {
         //pins.digitalWritePin(DigitalPin.P1, 0);
     }
 
-    function Car_spinleft(speed: number) {
+    function Car_spinleft(speed1: number, speed2: number) {
 
-        speed = speed * 16; // map 350 to 4096
-        if (speed >= 4096) {
-            speed = 4095
+        speed1 = speed1 * 16; // map 350 to 4096
+        speed2 = speed2 * 16;
+        if (speed1 >= 4096) {
+            speed1 = 4095
         }
-        if (speed <= 350 && speed != 0) {
-            speed = 350
+        if (speed1 <= 350) {
+            speed1 = 350
         }
+        if (speed2 >= 4096) {
+            speed2 = 4095
+        }
+        if (speed2 <= 350) {
+            speed2 = 350
+        }        
+        
         setPwm(12, 0, 0);
-        setPwm(13, 0, speed);
+        setPwm(13, 0, speed1);
 
-        setPwm(15, 0, speed);
+        setPwm(15, 0, speed2);
         setPwm(14, 0, 0);
 
         //pins.analogWritePin(AnalogPin.P0, speed);
@@ -726,20 +764,28 @@ namespace mbit_小车类 {
         //pins.analogWritePin(AnalogPin.P1, speed);
     } 
 
-    function Car_spinright(speed: number) {
+    function Car_spinright(speed1: number, speed2: number) {
 
-        speed = speed * 16; // map 350 to 4096
-        if (speed >= 4096) {
-            speed = 4095
+        speed1 = speed1 * 16; // map 350 to 4096
+        speed2 = speed2 * 16;
+        if (speed1 >= 4096) {
+            speed1 = 4095
         }
-        if (speed <= 350 && speed != 0) {
-            speed = 350
+        if (speed1 <= 350) {
+            speed1 = 350
         }
-        setPwm(12, 0, speed);
+        if (speed2 >= 4096) {
+            speed2 = 4095
+        }
+        if (speed2 <= 350) {
+            speed2 = 350
+        }    
+            
+        setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
         setPwm(15, 0, 0);
-        setPwm(14, 0, speed);
+        setPwm(14, 0, speed2);
         //pins.analogWritePin(AnalogPin.P0, 1023-speed);
         //pins.digitalWritePin(DigitalPin.P8, 1);
 
@@ -1005,13 +1051,13 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrl(index: CarState): void {
         switch (index) {
-            case CarState.Car_Run: Car_run(255); break;
-            case CarState.Car_Back: Car_back(255); break;
-            case CarState.Car_Left: Car_left(255); break;
-            case CarState.Car_Right: Car_right(255); break;
+            case CarState.Car_Run: Car_run(255, 255); break;
+            case CarState.Car_Back: Car_back(255, 255); break;
+            case CarState.Car_Left: Car_left(255, 255); break;
+            case CarState.Car_Right: Car_right(255, 255); break;
             case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(255); break;
-            case CarState.Car_SpinRight: Car_spinright(255); break;
+            case CarState.Car_SpinLeft: Car_spinleft(255, 255); break;
+            case CarState.Car_SpinRight: Car_spinright(255, 255); break;
         }
     }
     //% blockId=mbit_CarCtrlSpeed block="CarCtrlSpeed|%index|speed %speed"
@@ -1022,13 +1068,30 @@ namespace mbit_小车类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrlSpeed(index: CarState, speed: number): void {
         switch (index) {
-            case CarState.Car_Run: Car_run(speed); break;
-            case CarState.Car_Back: Car_back(speed); break;
-            case CarState.Car_Left: Car_left(speed); break;
-            case CarState.Car_Right: Car_right(speed); break;
+            case CarState.Car_Run: Car_run(speed, speed); break;
+            case CarState.Car_Back: Car_back(speed, speed); break;
+            case CarState.Car_Left: Car_left(speed, speed); break;
+            case CarState.Car_Right: Car_right(speed, speed); break;
             case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(speed); break;
-            case CarState.Car_SpinRight: Car_spinright(speed); break;
+            case CarState.Car_SpinLeft: Car_spinleft(speed, speed); break;
+            case CarState.Car_SpinRight: Car_spinright(speed, speed); break;
+        }
+    }
+    //% blockId=mbit_CarCtrlSpeed2 block="CarCtrlSpeed2|%index|speed1 %speed1|speed2 %speed2"
+    //% weight=91
+    //% blockGap=10
+    //% speed.min=0 speed.max=255
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function CarCtrlSpeed2(index: CarState, speed1: number, speed2: number): void {
+        switch (index) {
+            case CarState.Car_Run: Car_run(speed1, speed2); break;
+            case CarState.Car_Back: Car_back(speed1, speed2); break;
+            case CarState.Car_Left: Car_left(speed1, speed2); break;
+            case CarState.Car_Right: Car_right(speed1, speed2); break;
+            case CarState.Car_Stop: Car_stop(); break;
+            case CarState.Car_SpinLeft: Car_spinleft(speed1, speed2); break;
+            case CarState.Car_SpinRight: Car_spinright(speed1, speed2); break;
         }
     }
 }

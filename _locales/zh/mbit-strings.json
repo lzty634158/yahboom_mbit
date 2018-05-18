@@ -30,4 +30,5 @@
   "mbit_小车类.Servo_Car|block": "小车舵机|编号 %num|角度 %value",
   "mbit_小车类.CarCtrl|block": "小车控制|%index",
   "mbit_小车类.CarCtrlSpeed|block": "小车控制|%index|速度 %speed"
+  "mbit_小车类.CarCtrlSpeed2|block": "小车控制|%index|左电机速度 %speed1|右电机速度 %speed2"
 }
