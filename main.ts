@@ -1081,7 +1081,7 @@ namespace mbit_小车类 {
     //% weight=91
     //% blockGap=10
     //% speed1.min=0 speed1.max=255 speed2.min=0 speed2.max=255
-    //% color="#006400"
+    //% color="#640000"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function CarCtrlSpeed2(index: CarState, speed1: number, speed2: number): void {
         switch (index) {
