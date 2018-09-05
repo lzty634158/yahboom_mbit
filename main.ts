@@ -679,7 +679,7 @@ namespace mbit_小车类 {
             speed2 = 350
         }
         
-        setPwm(12, 0, speed1);
+        setPwm(12, 0, 0);
         setPwm(13, 0, 0);
 
         setPwm(15, 0, speed2);
@@ -712,7 +712,7 @@ namespace mbit_小车类 {
         setPwm(12, 0, speed1);
         setPwm(13, 0, 0);
 
-        setPwm(15, 0, speed2);
+        setPwm(15, 0, 0);
         setPwm(14, 0, 0);
         //pins.digitalWritePin(DigitalPin.P0, 0);
         //pins.digitalWritePin(DigitalPin.P8, 0);
