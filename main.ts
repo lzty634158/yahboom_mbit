@@ -309,7 +309,6 @@ namespace mbit_输入类 {
     //% weight=100
     //% blockGap=10
     //% color="#808080"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=5
     export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
 
         pins.setPull(pin3, PinPullMode.PullUp);
