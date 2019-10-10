@@ -1,7 +1,7 @@
 {
     "name": "mbit",
-    "version": "3.0.1",
-    "description": "Extension for YahBoom m:bit V3.0.1",
+    "version": "3.0.2",
+    "description": "Extension for YahBoom m:bit V3.0.2",
     "license": "MIT",
     "dependencies": {
         "core": "*",
