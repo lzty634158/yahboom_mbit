@@ -940,8 +940,9 @@ namespace mbit_小车类 {
     export function Avoid_Sensor(value: enAvoidState): boolean {
 
         let temp: boolean = false;
+        pins.setPull(DigitalPin.P9, PinPullMode.PullUp)
         pins.digitalWritePin(DigitalPin.P9, 0);
-        control.waitMicros(50);
+        control.waitMicros(100);
         switch (value) {
             case enAvoidState.OBSTACLE: {
                 if (pins.analogReadPin(AnalogPin.P3) < 800) {
