@@ -1,6 +1,6 @@
 # mbit
 
-Extension for Yahboom mbit V3.0.6
+Extension for Yahboom mbit V3.0.5
 
 ## License
 

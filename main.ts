@@ -945,6 +945,7 @@ namespace mbit_小车类 {
         control.waitMicros(100);
         switch (value) {
             case enAvoidState.OBSTACLE: {
+                serial.writeNumber(pins.analogReadPin(AnalogPin.P3))
                 if (pins.analogReadPin(AnalogPin.P3) < 800) {
                 
                     temp = true;
